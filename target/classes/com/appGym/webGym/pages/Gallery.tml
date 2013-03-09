@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+      xmlns:p="tapestry:parameter">
+<head>
+    <title>Gallery</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="layout/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="layout/css/style.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="layout/css/grid_12.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="layout/css/demo.css"/>
+    <script src="layout/js/jquery-1.7.min.js"></script>
+    <script src="layout/js/jquery.easing.1.3.js"></script>
+    <script src="layout/js/uCarousel.js"></script>
+	<script src="layout/js/tms-0.4.1.js"></script>
+    <script src="layout/js/cufon-yui.js"></script>
+    <script src="layout/js/Asap_400.font.js"></script>
+    <script src="layout/js/Coolvetica_400.font.js"></script>
+	<script src="layout/js/Kozuka_M_500.font.js"></script>
+    <script src="layout/js/cufon-replace.js"></script>
+    <script src="layout/js/FF-cash.js"></script>
+    
+    <script>
+    $(document).ready(function(){
+	  $('.gallery')._TMS({
+		  show:0,
+		  pauseOnHover:true,
+		  prevBu:'.prev',
+		  nextBu:'.next',
+		  playBu:'.play',
+		  duration:700,
+		  preset:'fade',
+		  pagination:$('.img-pags').uCarousel({show:4,shift:0}),
+		  pagNums:false,
+		  slideshow:7000,
+		  numStatus:true,
+		  banners:false,
+		  waitBannerAnimation:false,
+		  progressBar:false
+	  })		
+     })
+  </script>
+	<!--[if lt IE 8]>
+       <div style=' clear: both; text-align:center; position: relative;'>
+         <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+           <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+        </a>
+      </div>
+    <![endif]-->
+    <!--[if lt IE 9]>
+   		<script type="text/javascript" src="layout/js/html5.js"></script>
+    	<link rel="stylesheet" type="text/css" media="screen" href="layout/css/ie.css">
+	<![endif]-->
+</head>
+<body>
+<div class="main">
+	<div class="bg-img"></div>
+<!--==============================header=================================-->
+    <header>
+       <h1><t:pagelink page="index" >Web <strong>GYM.</strong></t:pagelink></h1>
+        <nav>
+        	<div class="social-icons">
+            	<a href="#" class="icon-2"></a>
+            	<a href="#" class="icon-1"></a>
+            </div>
+            <ul class="menu">
+               <li ><t:pagelink page="index" >Index</t:pagelink></li>
+                <li><t:pagelink page="trainings" >Trainings</t:pagelink></li> 
+                <li><t:pagelink page="timetable" >Timetable</t:pagelink></li>
+                <li  ><t:pagelink page="nutrition" >Nutrition</t:pagelink></li>
+                <li class="current"><t:pagelink page="gallery" >Gallery</t:pagelink></li>
+                <li><t:pagelink page="contacts" >Contacts</t:pagelink></li>
+            </ul>
+        </nav>
+    </header>   
+<!--==============================content================================-->
+    <section id="content"><div class="ic">More Website Templates @ TemplateMonster.com. April 02, 2012!</div>
+        <div class="container_12">
+          <div class="grid_12">
+          	<div id="slide">			  	
+                <div class="gallery">
+                    <ul class="items">
+                        <li><img src="layout/images/gallery-big-1.jpg" alt=""/></li>
+                        <li><img src="layout/images/gallery-big-5.jpg" alt=""/></li>
+                        <li><img src="layout/images/gallery-big-2.jpg" alt=""/></li>
+                        <li><img src="layout/images/gallery-big-6.jpg" alt=""/></li>
+                        <li><img src="layout/images/gallery-big-3.jpg" alt=""/></li>
+                        <li><img src="layout/images/gallery-big-7.jpg" alt=""/></li>
+                        <li><img src="layout/images/gallery-big-4.jpg" alt=""/></li>
+                        <li><img src="layout/images/gallery-big-8.jpg" alt=""/></li>
+                    </ul>
+                </div>
+                <a href="#" class="prev"></a><a href="#" class="next"></a>
+            </div>		
+          </div>
+          <div class="grid_12 top-1">
+            <div class="block-3 box-shadow">
+           	  <h2 class="p4"><span class="color-1">Photo</span> gallery</h2>
+                  <div class="pag">
+                      <div class="img-pags">
+                        <ul>
+                          <li><a href="#"><span><img src="layout/images/gallery-1.jpg" alt=""/></span></a></li>
+                          <li><a href="#"><span><img src="layout/images/gallery-5.jpg" alt=""/></span></a></li>
+                          <li><a href="#"><span><img src="layout/images/gallery-2.jpg" alt=""/></span></a></li>
+                          <li><a href="#"><span><img src="layout/images/gallery-6.jpg" alt=""/></span></a></li>
+                          <li><a href="#"><span><img src="layout/images/gallery-3.jpg" alt=""/></span></a></li>
+                          <li><a href="#"><span><img src="layout/images/gallery-7.jpg" alt=""/></span></a></li>
+                          <li><a href="#"><span><img src="layout/images/gallery-4.jpg" alt=""/></span></a></li>
+                          <li><a href="#"><span><img src="layout/images/gallery-8.jpg" alt=""/></span></a></li>
+                        </ul>  
+                      </div>								
+                  </div>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+    </section> 
+<!--==============================footer=================================-->
+    <footer>
+               <p>� 2013 Web GYM</p>
+        <p><a rel="nofollow"  class="link" target="_blank"></a> by misur.com  </p>
+         </footer>	
+</div>    
+<script>
+	Cufon.now();
+</script>
+</body>
+</html>

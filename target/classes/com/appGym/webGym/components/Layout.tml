@@ -23,7 +23,6 @@ Description: A Web 2.0 design with fluid width suitable for blogs and small webs
             <div class="logo">
                 <h1>
                     <t:pagelink page="index">com.appGym:appGym</t:pagelink>
-                    &nbsp;
                     version ${appVersion}
                 </h1>
             </div>
@@ -74,11 +73,10 @@ Description: A Web 2.0 design with fluid width suitable for blogs and small webs
         <!-- start footer -->
         <div class="footer">
             <p class="legal">
-                &copy;2012 com.appGym. All Rights Reserved.
-                &nbsp;&nbsp;&bull;&nbsp;&nbsp;
+                2012 com.appGym. All Rights Reserved.
+            
                 Design by
                 <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>
-                &nbsp;&nbsp;&bull;&nbsp;&nbsp;
                 Icons by
                 <a href="http://famfamfam.com/">FAMFAMFAM</a>.
             </p>

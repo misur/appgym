@@ -27,6 +27,7 @@ public class AppModule
         // Use service builder methods (example below) when the implementation
         // is provided inline, or requires more initialization than simply
         // invoking the constructor.
+    	 
     }
 
     public static void contributeFactoryDefaults(

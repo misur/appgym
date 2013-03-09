@@ -72,19 +72,19 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<!-- <dependency>
-				 <groupId>org.apache.tapestry</groupId> 
-		 		 <artifactId>tapestry-hibernate</artifactId> 
-				 <version>${tapestry-release-version}</version>
-			 </dependency>  -->
+		   <dependency>
+            <groupId>org.apache.tapestry</groupId>
+            <artifactId>tapestry-hibernate</artifactId>
+            <version>${tapestry-release-version}</version>
+        </dependency>   
 
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.wicketstuff</groupId>
 			<artifactId>jquery</artifactId>
 			<version>1.4.18</version>
-		</dependency>
+		</dependency> -->
 
-		<dependency>
+	 	<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.18</version>
