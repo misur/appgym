@@ -1,9 +1,13 @@
 package com.appGym.webGym.pages;
 
+import com.appGym.webGym.annotations.AdminAccess;
+import com.appGym.webGym.annotations.AnonymousAccess;
+import com.appGym.webGym.annotations.UserAccess;
 
-/**
- * Start page of application appGym.
- */
+
+@AnonymousAccess
+@UserAccess
+@AdminAccess
 public class Index
 {
         

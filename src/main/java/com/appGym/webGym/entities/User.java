@@ -14,7 +14,6 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.beaneditor.NonVisual;
 import org.apache.tapestry5.beaneditor.Validate;
 
-//import com.appGym.webGym.services.UserRole;
 
 @Entity
 @Table(name = "user")
@@ -40,8 +39,18 @@ public class User {
 	private String email;
 	@Column(name = "dateOfBirth")
 	private Date dateOfBirth;
-//	@Column(nullable = false, name = "role")
-//	private UserRole role;
+	@Validate("required")
+	@Column(name = "type", nullable = false)
+	private String type;
+
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	public Long getId() {
 		return id;
@@ -115,18 +124,5 @@ public class User {
 				+ dateOfBirth + "]";
 	}
 
-//	public boolean isAdmin() {
-//		if (role == UserRole.ADMIN) {
-//			return true;
-//		}
-//		return false;
-//	}
-//
-//	public boolean isEmployee() {
-//		if (role == UserRole.EMPLOYEE) {
-//			return true;
-//		}
-//		return false;
-//	}
 
 }

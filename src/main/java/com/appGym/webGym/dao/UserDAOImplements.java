@@ -61,7 +61,7 @@ public class UserDAOImplements implements UserDAO {
 		}
 
 		List l = session.createCriteria(User.class)
-				.add(Restrictions.eq("userName", username))
+				.add(Restrictions.eq("username", username))
 				.add(Restrictions.eq("password", password)).list();
 		User u = null;
 		if (l != null) {

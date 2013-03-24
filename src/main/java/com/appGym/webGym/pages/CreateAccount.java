@@ -8,10 +8,16 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.hibernate.annotations.CommitAfter;
 import org.apache.tapestry5.ioc.annotations.Inject;
 
+import com.appGym.webGym.annotations.AdminAccess;
+import com.appGym.webGym.annotations.AnonymousAccess;
+import com.appGym.webGym.annotations.UserAccess;
 import com.appGym.webGym.dao.UserDAO;
 import com.appGym.webGym.entities.Gender;
 import com.appGym.webGym.entities.User;
-
+import com.appGym.webGym.model.user.MD5;
+@UserAccess
+@AdminAccess
+@AnonymousAccess
 public class CreateAccount {
 
 	@Property
@@ -36,10 +42,11 @@ public class CreateAccount {
 	Object onSubmitFromForm(){
 		User user = new User();
 		user.setUsername(this.username);
-//		user.setPassword( MD5.md5(this.password));
-		user.setPassword( this.password);
+		user.setPassword( MD5.md5(this.password));
+//		user.setPassword( this.password);
 		user.setName(this.name);
 		user.setSurname(this.surname);
+		user.setType("user");
 //		user.setGender(this.gender);
 		user.setEmail(this.email);
 		user.setDateOfBirth(dateOfBirth);

@@ -22,6 +22,7 @@ import org.slf4j.Logger;
 
 import com.appGym.webGym.dao.UserDAO;
 import com.appGym.webGym.dao.UserDAOImplements;
+import com.appGym.webGym.security.AuthenticationFilter;
 
 /**
  * This module is automatically included as part of the Tapestry IoC Registry, it's a good place to
@@ -37,7 +38,7 @@ public class AppModule
         // Use service builder methods (example below) when the implementation
         // is provided inline, or requires more initialization than simply
         // invoking the constructor.
-//    	binder.bind(Authenticator.class, BasicAuthenticator.class);
+    	binder.bind(Authenticator.class, BasicAuthenticator.class);
     	binder.bind(UserDAO.class,UserDAOImplements.class);
     	 
     }
@@ -134,17 +135,17 @@ public class AppModule
 		advisor.addTransactionCommitAdvice(receiver);
 	}
        
-//       @Contribute(ValidatorMacro.class)
-//      	public static void combineValidators(
-//      			MappedConfiguration<String, String> configuration) {
-//      		configuration.add("username", "required, minlength=3, maxlength=20");
-//      		configuration.add("password", "required, minlength=6, maxlength=20");
-//      	}
-//
-//      	@Contribute(ComponentRequestHandler.class)
-//      	public static void contributeComponentRequestHandler(
-//      			OrderedConfiguration<ComponentRequestFilter> configuration) {
-//      		configuration.addInstance("RequiresLogin", AuthenticationFilter.class);
-//      	}
+       @Contribute(ValidatorMacro.class)
+      	public static void combineValidators(
+      			MappedConfiguration<String, String> configuration) {
+      		configuration.add("username", "required, minlength=3, maxlength=20");
+      		configuration.add("password", "required, minlength=5, maxlength=20");
+      	}
+
+      	@Contribute(ComponentRequestHandler.class)
+      	public static void contributeComponentRequestHandler(
+      			OrderedConfiguration<ComponentRequestFilter> configuration) {
+      		configuration.addInstance("RequiresLogin", AuthenticationFilter.class);
+      	}
 //    
 }
