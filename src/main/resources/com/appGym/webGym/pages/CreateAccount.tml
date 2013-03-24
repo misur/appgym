@@ -1,0 +1,111 @@
+<html t:type="layout" t:title="Create Account" t:pagetitle="Create Account"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+	<section id="content">
+		<div class="ic">More Website Templates @ TemplateMonster.com. April
+			02,
+			2012!</div>
+		<div class="container_12">
+			<div class="grid_12">
+				<div class="box-shadow">
+					<div class="wrap block-2">
+						<div class="col-4">
+							<t:form t:id="form">
+								<fieldset>
+									<table cellpadding="10" border="2">
+										<tr>
+											<td>
+												<h3>Username:</h3>
+												<br></br>
+											</td>
+											<td>
+
+												<input type="text" t:type="textfield" t:label="username"
+													t:id="username" t:value="username" />
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<h3>Password:</h3>
+												<br></br>
+											</td>
+											<td>
+												<input t:type="passwordfield" t:label="Password" t:id="password"
+													t:value="password" />
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<h3>Name:</h3>
+												<br></br>
+											</td>
+											<td>
+												<input type="text" t:type="textfield" t:label="Name"
+													t:id="name" t:value="name" />
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<h3>Surname:</h3>
+												<br></br>
+											</td>
+											<td>
+
+												<input type="text" t:type="textfield" t:label="surname"
+													t:id="surname" t:value="surname" />
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<h3>Gender:</h3>
+												<br></br>
+											</td>
+											<td>
+												<t:radiogroup t:value="gender">
+												<!--  	<input type="radio" t:type="radio" t:value="gender" />
+													Male-->
+												<!-- 	<input type="radio" t:type="radio" t:value="female" />
+													Female -->
+												</t:radiogroup>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<h3>Email:</h3>
+												<br></br>
+											</td>
+											<td>
+
+												<input type="text" t:type="textfield" t:label="email"
+													t:id="email" t:value="email" />
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<h3>Date Of Birth:</h3>
+												<br></br>
+											</td>
+											<td>
+
+												<input t:type="datefield" t:label="dateOfBirth" t:id="dateOfBirth"
+													t:value="dateOfBirth" />
+											</td>
+										</tr>
+									</table>
+
+									<div class="btns">
+										<t:linkSubmit t:value="Send" class="button2">
+											Create
+										</t:linkSubmit>
+									</div>
+
+								</fieldset>
+							</t:form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</section>
+</html>

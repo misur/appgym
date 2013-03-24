@@ -3,15 +3,25 @@ package com.appGym.webGym.services;
 import java.io.IOException;
 
 import org.apache.tapestry5.*;
+import org.apache.tapestry5.hibernate.HibernateTransactionAdvisor;
 import org.apache.tapestry5.ioc.MappedConfiguration;
+import org.apache.tapestry5.ioc.MethodAdviceReceiver;
 import org.apache.tapestry5.ioc.OrderedConfiguration;
 import org.apache.tapestry5.ioc.ServiceBinder;
+import org.apache.tapestry5.ioc.annotations.Contribute;
 import org.apache.tapestry5.ioc.annotations.Local;
+import org.apache.tapestry5.ioc.annotations.Match;
+import org.apache.tapestry5.services.ComponentRequestFilter;
+import org.apache.tapestry5.services.ComponentRequestHandler;
 import org.apache.tapestry5.services.Request;
 import org.apache.tapestry5.services.RequestFilter;
 import org.apache.tapestry5.services.RequestHandler;
 import org.apache.tapestry5.services.Response;
+import org.apache.tapestry5.validator.ValidatorMacro;
 import org.slf4j.Logger;
+
+import com.appGym.webGym.dao.UserDAO;
+import com.appGym.webGym.dao.UserDAOImplements;
 
 /**
  * This module is automatically included as part of the Tapestry IoC Registry, it's a good place to
@@ -27,6 +37,8 @@ public class AppModule
         // Use service builder methods (example below) when the implementation
         // is provided inline, or requires more initialization than simply
         // invoking the constructor.
+//    	binder.bind(Authenticator.class, BasicAuthenticator.class);
+    	binder.bind(UserDAO.class,UserDAOImplements.class);
     	 
     }
 
@@ -115,4 +127,24 @@ public class AppModule
 
         configuration.add("Timing", filter);
     }
+    
+    @Match("*DAO")
+	public static void adviseTransactions(HibernateTransactionAdvisor advisor,
+			MethodAdviceReceiver receiver) {
+		advisor.addTransactionCommitAdvice(receiver);
+	}
+       
+//       @Contribute(ValidatorMacro.class)
+//      	public static void combineValidators(
+//      			MappedConfiguration<String, String> configuration) {
+//      		configuration.add("username", "required, minlength=3, maxlength=20");
+//      		configuration.add("password", "required, minlength=6, maxlength=20");
+//      	}
+//
+//      	@Contribute(ComponentRequestHandler.class)
+//      	public static void contributeComponentRequestHandler(
+//      			OrderedConfiguration<ComponentRequestFilter> configuration) {
+//      		configuration.addInstance("RequiresLogin", AuthenticationFilter.class);
+//      	}
+//    
 }

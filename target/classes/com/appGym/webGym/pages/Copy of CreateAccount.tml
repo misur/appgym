@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter">
+	<head>
+		<title>Contacts</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" media="screen"
+			href="layout/css/reset.css" />
+		<link rel="stylesheet" type="text/css" media="screen"
+			href="layout/css/style.css" />
+		<link rel="stylesheet" type="text/css" media="screen"
+			href="layout/css/grid_12.css" />
+		<script src="layout/js/jquery-1.7.min.js"></script>
+		<script src="layout/js/jquery.easing.1.3.js"></script>
+		<script src="layout/js/cufon-yui.js"></script>
+		<script src="layout/js/Asap_400.font.js"></script>
+		<script src="layout/js/Coolvetica_400.font.js"></script>
+		<script src="layout/js/Kozuka_M_500.font.js"></script>
+		<script src="layout/js/cufon-replace.js"></script>
+		<script src="layout/js/FF-cash.js"></script>
+		<!--[if lt IE 8]> <div style=' clear: both; text-align:center; position: 
+			relative;'> <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"> 
+			<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" 
+			border="0" height="42" width="820" alt="You are using an outdated browser. 
+			For a faster, safer browsing experience, upgrade for free today." /> </a> 
+			</div> <![endif] -->
+		<!--[if lt IE 9]> <script type="text/javascript" src="layout/js/html5.js"></script> 
+			<link rel="stylesheet" type="text/css" media="screen" href="layout/css/ie.css"> 
+			<![endif] -->
+	</head>
+	<body>
+		<div class="main">
+			<div class="bg-img"></div>
+			<!--==============================header================================= -->
+			<header>
+				<h1>
+					<t:pagelink page="index">
+						Web
+						<strong>GYM.</strong>
+					</t:pagelink>
+				</h1>
+				<nav>
+					<div class="social-icons">
+						<a href="#" class="icon-2"></a>
+						<a href="#" class="icon-1"></a>
+					</div>
+					<ul class="menu">
+						<li>
+							<t:pagelink page="index">Index</t:pagelink>
+						</li>
+						<li>
+							<t:pagelink page="trainings">Trainings</t:pagelink>
+						</li>
+						<li>
+							<t:pagelink page="timetable">Timetable</t:pagelink>
+						</li>
+						<li>
+							<t:pagelink page="nutrition">Nutrition</t:pagelink>
+						</li>
+						<li>
+							<t:pagelink page="gallery">Gallery</t:pagelink>
+						</li>
+						<li>
+							<t:pagelink page="contacts">Contacts</t:pagelink>
+						</li>
+					</ul>
+				</nav>
+			</header>
+			<!--==============================content================================ -->
+			<section id="content">
+				<div class="ic">More Website Templates @ TemplateMonster.com. April
+					02, 2012!</div>
+				<div class="container_12">
+					<div class="grid_12">
+						<div class="box-shadow">
+							<div class="wrap block-2">
+
+								<div class="col-4">
+
+									<t:form t:id="form">
+										<fieldset>
+											<table>
+												<tr>
+													<td>
+														<lable>Username:</lable>
+													</td>
+													<td>
+
+														<input type="text" t:type="textfield" t:label="username"
+															t:id="username" t:value="username" />
+													</td>
+												</tr>
+
+												<tr>
+													<td>
+														<lable>Password:</lable>
+													</td>
+													<td>
+														<input t:type="passwordfield" t:label="Password"
+															t:id="password" t:value="password" />
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<lable>Name:</lable>
+													</td>
+													<td>
+														<input type="text" t:type="textfield" t:label="Name"
+															t:id="name" t:value="name" />
+													</td>
+												</tr>
+
+
+											</table>
+											<tr>
+												<td>
+													<div class="btns">
+														<a>
+															<t:linksubmit t:id="send" context="literal:true">
+																Create
+															</t:linksubmit>
+														</a>
+													</div>
+												</td>
+											</tr>
+										</fieldset>
+									</t:form>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</section>
+			<!--==============================footer================================= -->
+			<footer>
+				<p>� 2013 Web GYM</p>
+				<p>
+					<a rel="nofollow" class="link" target="_blank"></a>
+					by misur.com
+				</p>
+			</footer>
+		</div>
+		<script>
+			Cufon.now();
+		</script>
+	</body>
+</html>

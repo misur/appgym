@@ -1,0 +1,36 @@
+<html t:type="layout" t:title="Prijava na sistem" t:sidebarTitle="Informacije"
+      t:pageTitle="Prijava na sistem"
+      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+      xmlns:p="tapestry:parameter">
+
+	<form t:type="form" class="full-form" t:id="loginForm">
+		<t:errors />	
+		<table>
+			<tr>
+				<th>
+					<label t:type="label" t:for="username">korisnicko ime:</label>
+				</th>
+				<td>
+					<input t:type="textfield" t:id="username" t:validate="username"/>
+				</td>	
+			</tr>
+			<tr>
+				<th><label t:type="label" t:for="password">korisnicka lozinka:</label></th>
+				<td><input type="password" t:type="passwordfield" t:id="password" t:validate="password"/></td>
+			</tr>
+		</table>
+		
+		<div class="form-submit">
+			<input type="submit" value="Prijavi me" />
+		</div>
+			 
+	</form>
+
+	<p:sidebar>
+        <p>
+			<br/>U slucaju bilo kakvih problema rada sistema obratite se na email strujic.dzenan@gmail.com
+			
+        </p>
+	</p:sidebar>
+  
+</html>

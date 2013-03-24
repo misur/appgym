@@ -1,0 +1,33 @@
+<html title="About appGym" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter">
+
+	<p>About appGym application ...</p>
+	<h1>Link Submit Demo</h1>
+	<br />
+	<br />
+
+	<t:form>
+		<t:errors />
+		<p>
+			<t:label t:for="name" t:id="Label">The Name : </t:label>
+			<t:textfield t:id="name" />
+		</p>
+		<p>
+			<t:linksubmit t:id="send" context="literal:true">
+				Send this Name
+			</t:linksubmit>
+		</p>
+
+	</t:form>
+
+	<br />
+	<br />
+	<strong>You added :</strong>
+	<t:if t:test="listOfNames">
+		<ul>
+			<li t:type="loop" t:id="listNames" t:source="listOfNames" t:value="value">
+				${value}
+			</li>
+		</ul>
+	</t:if>
+</html>

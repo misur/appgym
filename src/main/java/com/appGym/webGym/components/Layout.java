@@ -9,7 +9,18 @@ import org.apache.tapestry5.SymbolConstants;
 /**
  * Layout component for pages of application appGym.
  */
-@Import(stylesheet = "context:layout/layout.css")
+@Import(stylesheet = {"context:layout/css/reset.css",
+		"context:layout/css/style.css",
+		"context:layout/css/grid_12.css"},
+		library = { "context:layout/js/jquery-1.7.min.js",
+		"context:layout/js/jquery.easing.1.3.js",
+		"context:layout/js/cufon-yui.js",
+		"context:layout/js/Asap_400.font.js",
+		"context:layout/js/Coolvetica_400.font.js",
+		"context:layout/js/Kozuka_M_500.font.js",
+		"context:layout/js/cufon-replace.js",
+		"context:layout/js/FF-cash.js"}
+		)
 public class Layout
 {
     /**

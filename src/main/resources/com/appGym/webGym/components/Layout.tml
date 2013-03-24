@@ -1,86 +1,56 @@
-<!DOCTYPE html>
-<!--
-
-Design by Free CSS Templates
-http://www.freecsstemplates.org
-Released for free under a Creative Commons Attribution 2.5 License
-
-Title      : Concrete (modified for Tapestry)
-Version    : 1.0
-Released   : 20080825
-Description: A Web 2.0 design with fluid width suitable for blogs and small websites.
--->
-        <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
-      xmlns:p="tapestry:parameter">
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-        <title>${title}</title>
-    </head>
-    <body>
-        <!-- start header -->
-        <div class="header">
-            <div class="logo">
-                <h1>
-                    <t:pagelink page="index">com.appGym:appGym</t:pagelink>
-                    version ${appVersion}
-                </h1>
+<html t:title="layout" t:sidebarTitle="Layout" 
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+    xmlns:p="tapestry:parameter">
+<head>
+   
+    
+	<!--[if lt IE 8]>
+       <div style=' clear: both; text-align:center; position: relative;'>
+         <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+           <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+        </a>
+      </div>
+    <![endif]-->
+    <!--[if lt IE 9]>
+   		<script type="text/javascript" src="layout/js/html5.js"></script>
+    	<link rel="stylesheet" type="text/css" media="screen" href="layout/css/ie.css">
+	<![endif]-->
+</head>
+<body>
+<div class="main">
+	<div class="bg-img"></div>
+<!--==============================header=================================-->
+    <header>
+        <h1><t:pagelink page="index" >Web <strong>GYM.</strong></t:pagelink></h1>
+        <nav>
+        	<div class="social-icons">
+            	<!-- <a href="#" class="icon-2"></a>
+            	<a href="#" class="icon-1"></a> -->
+            	<a class="icon-3" type="pagelink" href="CreateAccount"></a>
+            	<a class="icon-4" type="pagelink" href="Login"></a>
             </div>
-            <div class="menu">
-                <ul>
-                    <li t:type="loop" source="pageNames" value="pageName" class="prop:classForPageName">
-                        <t:pagelink page="prop:pageName">${pageName}</t:pagelink>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- end header -->
-        <!-- start page -->
-        <div class="page">
-            <!-- start sidebar -->
-            <div class="sidebar">
-                <ul>
-                    <li class="search" style="background: none;">
-                    </li>
-                    <li>
-                        <t:alerts/>
-                    </li>
-                    <li t:type="if" test="sidebar">
-                        <h2>${sidebarTitle}</h2>
-
-                        <div class="sidebar-content">
-                            <t:delegate to="sidebar"/>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <!-- end sidebar -->
-            <!-- start content -->
-            <div class="content">
-                <div class="post">
-                    <div class="title">
-                        <h2>${title}</h2>
-                    </div>
-                    <div class="entry">
-                        <t:body/>
-                    </div>
-                </div>
-            </div>
-            <!-- end content -->
-            <br style="clear: both;"/>
-        </div>
-        <!-- end page -->
-        <!-- start footer -->
-        <div class="footer">
-            <p class="legal">
-                2012 com.appGym. All Rights Reserved.
-            
-                Design by
-                <a href="http://www.freecsstemplates.org/">Free CSS Templates</a>
-                Icons by
-                <a href="http://famfamfam.com/">FAMFAMFAM</a>.
-            </p>
-        </div>
-        <!-- end footer -->
-    </body>
+            <ul class="menu">
+                 <li ><t:pagelink page="index" >Index</t:pagelink></li>
+                <li><t:pagelink page="trainings" >Trainings</t:pagelink></li> 
+                <li><t:pagelink page="timetable" >Timetable</t:pagelink></li>
+                <li  ><t:pagelink page="nutrition" >Nutrition</t:pagelink></li>
+                <li ><t:pagelink page="gallery" >Gallery</t:pagelink></li>
+                <li ><t:pagelink page="contacts" >Contacts</t:pagelink></li>
+            </ul>
+        </nav>
+    </header>   
+<!--==============================content================================-->
+    <t:body></t:body>
+<!--==============================footer=================================-->
+    <footer>
+              <p>� 2013 Web GYM</p>
+        <p><a rel="nofollow"  class="link" target="_blank"></a> by misur.com  </p>
+         </footer>	
+          <h2>${title}</h2>
+          <h2>${sidebarTitle}</h2>
+</div>    
+<script>
+	Cufon.now();
+</script>
+</body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"   xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+<html lang="en" t:type="layout" t:title="Index" t:pagetitle="Index"  xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
       xmlns:p="tapestry:parameter">
 <head>
     <title>Index</title>
@@ -50,25 +50,9 @@
 </head>
 <body>
 <div class="main">
-	<div class="bg-img"></div>
+	
 <!--==============================header=================================-->
-    <header>
-        <h1><t:pagelink page="index" >Web <strong>GYM.</strong></t:pagelink></h1>
-        <nav>
-        	<div class="social-icons">
-            	<a href="#" class="icon-2"></a>
-            	<a href="#" class="icon-1"></a>
-            </div>
-            <ul class="menu">
-                <li class="current"><t:pagelink page="index" >Index</t:pagelink></li>
-                <li><t:pagelink page="trainings" >Trainings</t:pagelink></li> 
-                <li><t:pagelink page="timetable" >Timetable</t:pagelink></li>
-                <li><t:pagelink page="nutrition" >Nutrition</t:pagelink></li>
-                <li><t:pagelink page="gallery" >Gallery</t:pagelink></li>
-                <li><t:pagelink page="contacts" >Contacts</t:pagelink></li>
-            </ul>
-        </nav>
-    </header>   
+    
 <!--==============================content================================-->
     <section id="content"><div class="ic">More Website Templates @ TemplateMonster.com. April 02, 2012!</div>
         <div class="container_12">
@@ -155,10 +139,7 @@
         </div>
     </section> 
 <!--==============================footer=================================-->
-    <footer>
-        <p>� 2013 Web GYM</p>
-        <p><a rel="nofollow"  class="link" target="_blank"></a> by misur.com  </p>
-    </footer>	
+    
 </div>    
 <script>
 	Cufon.now();
