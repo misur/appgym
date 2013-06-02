@@ -1,0 +1,119 @@
+<html t:type="layout" t:title="Review Users" t:pagetitle="Review Users"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+	<head>
+		<meta charset="utf-8" />
+		<title>jQuery UI Tabs - Default functionality</title>
+		<link rel="stylesheet"
+			href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+		<link rel="stylesheet" href="/resources/demos/style.css" />
+		<script>
+			$(function() {
+			$( "#tabs" ).tabs();
+			});
+		</script>
+	</head>
+	<section id="content">
+		<div class="ic">More Website Templates @ TemplateMonster.com. April
+			02,
+			2012!</div>
+		<div class="container_12">
+			<div class="grid_12">
+				<div class="box-shadow">
+					<div class="wrap block-2">
+						<div>
+							<t:form t:id="form">
+								<fieldset>
+									<div id="tabs">
+										<ul>
+											<li>
+												<a href="#tabs-1">Users</a>
+											</li>
+											<li>
+												<a href="#tabs-2">Search user</a>
+											</li>
+											<li>
+												<a href="#tabs-3">Trainings</a>
+											</li>
+										</ul>
+										<div id="tabs-1">
+											<t:grid source="users" row="user" model="myModel"
+												t:inplace="true" rowIndex="currentIndex" rowsPerPage="10">
+												<p:firstnameCell>
+													<div t:id="name" t:type="jquery/inPlaceEditor" value="user.name"
+														t:context="${currentIndex}" />
+												</p:firstnameCell>
+												<p:lastnameCell>
+													<div t:id="surname" t:type="jquery/inPlaceEditor"
+														value="user.surname" t:context="${currentIndex}" />
+												</p:lastnameCell>
+												<p:usernameCell>
+													<div t:id="username" t:type="jquery/inPlaceEditor"
+														value="user.username" t:context="${currentIndex}" />
+												</p:usernameCell>
+												<p:emailCell>
+													<div t:id="email" t:type="jquery/inPlaceEditor" value="user.email"
+														t:context="${currentIndex}" />
+												</p:emailCell>
+												<p:dateOfBirthCell>
+													<div t:id="dateOfBirth" t:type="jquery/inPlaceEditor"
+														value="user.dateOfBirth" t:context="${currentIndex}" />
+												</p:dateOfBirthCell>
+												<p:typeCell>
+													<div t:type="jquery/inPlaceEditor" value="user.type"
+														t:context="${currentIndex}">
+														<t:select t:id="selectedTypes" model="types"
+															encoder="types" value="selectedTypes" t:blankLabel="choose..." />
+													</div>
+												</p:typeCell>
+												<p:actionCell>
+													<t:actionlink t:id="delete" context="user.id"
+														class="icon-5">
+														<img src="layout/images/icon-5.png" />
+													</t:actionlink>
+
+												</p:actionCell>
+											</t:grid>
+										</div>
+										<div id="tabs-2">
+											<p>Search user</p>
+										</div>
+										<div id="tabs-3">
+											<p>Trainings</p>
+
+											<t:grid source="trainingList" row="training" model="myModel1"
+												t:inplace="true" rowIndex="currentIndex" rowsPerPage="10">
+
+												<p:nameCell>
+																${training.name}
+												</p:nameCell>
+												<p:typeCell>
+																${training.type}
+												</p:typeCell>
+												<p:priceCell>
+																${training.price}
+												</p:priceCell>
+												<p:ratingCell>
+																${training.rating}
+												</p:ratingCell>
+												<p:actionCell>
+													<t:actionlink t:id="deleteTraining" context="training.id"
+														class="icon-5">
+														<img src="layout/images/icon-5.png" />
+													</t:actionlink>
+
+												</p:actionCell>
+												
+											</t:grid>
+										</div>
+									</div>
+								</fieldset>
+							</t:form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</html>

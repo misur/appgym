@@ -1,6 +1,7 @@
 package com.appGym.webGym.pages;
 
 import org.apache.tapestry5.annotations.Component;
+import org.apache.tapestry5.annotations.Import;
 import org.apache.tapestry5.annotations.Log;
 import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.corelib.components.Form;
@@ -11,7 +12,7 @@ import com.appGym.webGym.annotations.AnonymousAccess;
 import com.appGym.webGym.security.AuthenticationException;
 import com.appGym.webGym.services.Authenticator;
 
-
+@Import(stylesheet = { "context:layout/bootstrap/css/bootstrap.css"})
 @AnonymousAccess
 public class Login {
 

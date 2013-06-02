@@ -1,0 +1,61 @@
+<html t:type="layout" t:title="DetailsPersonalTraining"
+	t:pagetitle="DetailsPErsonalTraining" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter">
+	<section id="content">
+		<div class="container_12">
+			<div class="grid_12">
+				<div class="box-shadow">
+					<div class="wrap block-2">
+						<div class="col-1">
+							<p>
+								<span class="color-1">Name :</span>
+								${training.getName()}
+							</p>
+							<p>
+								<span class="color-1">Description :</span>
+								${training.getDescription()}
+							</p>
+							<p>
+								<span class="color-1">Price :</span>
+								${training.getPrice()}
+							</p>
+							<t:if test="!user">
+
+							<t:form t:id="form">
+									<t:linkSubmit t:value="Add" class="button2">
+										Add
+										training
+									</t:linkSubmit>
+							</t:form>
+						</t:if>
+						</div>
+					<!-- 	 <div class="col-4">
+							<embed width="640" height="360"
+								src="https://www.youtube.com/v/${evidenceExercise.getExercise().getVideoLink()}"
+								frameborder="0" allowfullscreen="true"></embed>
+						</div> -->
+						<div class="col-4">
+							<h2 class="p6">All Exercises for Training</h2>
+
+							<ul class="list-2">
+								<t:loop source="list" value="evidenceExercise">
+									<li>
+										<span class="color-1">Dan :</span>
+										${evidenceExercise.getDay()}
+										<a href="#" t:type="pageLink" t:page="Trainings">${evidenceExercise.getExercise().getType()} </a>
+									
+									</li>
+										<embed width="640" height="360"
+								src="https://www.youtube.com/v/${evidenceExercise.getExercise().getVideoLink()}"
+								frameborder="0" allowfullscreen="true"></embed>
+								</t:loop>
+							</ul>
+						</div>
+						
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</html>

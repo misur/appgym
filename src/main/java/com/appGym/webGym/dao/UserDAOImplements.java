@@ -43,7 +43,6 @@ public class UserDAOImplements implements UserDAO {
 		return false;
 	}
 
-	@Log
 	public List<User> findAll() {
 		// TODO Auto-generated method stub
 		return session.createCriteria(User.class).list();

@@ -20,6 +20,14 @@ import org.apache.tapestry5.services.Response;
 import org.apache.tapestry5.validator.ValidatorMacro;
 import org.slf4j.Logger;
 
+import com.appGym.webGym.dao.EvidenceExerciseDAO;
+import com.appGym.webGym.dao.EvidenceExerciseDAOImplements;
+import com.appGym.webGym.dao.ExerciseDAO;
+import com.appGym.webGym.dao.ExerciseDAOImplements;
+import com.appGym.webGym.dao.MyTrainingsDAO;
+import com.appGym.webGym.dao.MyTrainingsDAOImplements;
+import com.appGym.webGym.dao.TrainingDAO;
+import com.appGym.webGym.dao.TrainingDAOImplements;
 import com.appGym.webGym.dao.UserDAO;
 import com.appGym.webGym.dao.UserDAOImplements;
 import com.appGym.webGym.security.AuthenticationFilter;
@@ -40,6 +48,10 @@ public class AppModule
         // invoking the constructor.
     	binder.bind(Authenticator.class, BasicAuthenticator.class);
     	binder.bind(UserDAO.class,UserDAOImplements.class);
+    	binder.bind(TrainingDAO.class,TrainingDAOImplements.class);
+    	binder.bind(EvidenceExerciseDAO.class, EvidenceExerciseDAOImplements.class);
+    	binder.bind(ExerciseDAO.class, ExerciseDAOImplements.class);
+    	binder.bind(MyTrainingsDAO.class, MyTrainingsDAOImplements.class);
     	 
     }
 

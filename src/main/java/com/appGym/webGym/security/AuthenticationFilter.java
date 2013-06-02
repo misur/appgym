@@ -14,6 +14,7 @@ import org.apache.tapestry5.services.Response;
 import org.hibernate.annotations.Index;
 
 import com.appGym.webGym.annotations.AnonymousAccess;
+import com.appGym.webGym.annotations.TrainerAccess;
 import com.appGym.webGym.annotations.UserAccess;
 import com.appGym.webGym.pages.Login;
 import com.appGym.webGym.services.Authenticator;
@@ -79,7 +80,12 @@ public class AuthenticationFilter implements ComponentRequestFilter {
 			if (authenticator.getLoggedUser().getType().equalsIgnoreCase("admin")) {
 				return false;
 			}
-
+			
+			if (authenticator.getLoggedUser().getType().equalsIgnoreCase("trainer")) {
+				if (page.getClass().isAnnotationPresent(TrainerAccess.class)) 
+				return false;
+			}
+			
 			if (authenticator.getLoggedUser().getType().equalsIgnoreCase("user")) {
 				if (page.getClass().isAnnotationPresent(UserAccess.class)) {
 					return false;

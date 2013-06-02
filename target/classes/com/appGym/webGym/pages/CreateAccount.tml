@@ -8,7 +8,7 @@
 			<div class="grid_12">
 				<div class="box-shadow">
 					<div class="wrap block-2">
-						<div class="col-4">
+						<div class="col-1">
 							<t:form t:id="form">
 								<fieldset>
 									<table cellpadding="10" border="2">
@@ -60,12 +60,8 @@
 												<br></br>
 											</td>
 											<td>
-												<t:radiogroup t:value="gender">
-												<!--  	<input type="radio" t:type="radio" t:value="gender" />
-													Male-->
-												<!-- 	<input type="radio" t:type="radio" t:value="female" />
-													Female -->
-												</t:radiogroup>
+											<t:select t:id="selectedGender" model="genders"
+													encoder="genders" value="selectedGender" t:blankLabel="choose..." />
 											</td>
 										</tr>
 										<tr>
@@ -86,7 +82,6 @@
 												<br></br>
 											</td>
 											<td>
-
 												<input t:type="datefield" t:label="dateOfBirth" t:id="dateOfBirth"
 													t:value="dateOfBirth" />
 											</td>

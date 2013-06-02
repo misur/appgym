@@ -14,7 +14,6 @@ import org.apache.tapestry5.annotations.Property;
 import org.apache.tapestry5.beaneditor.NonVisual;
 import org.apache.tapestry5.beaneditor.Validate;
 
-
 @Entity
 @Table(name = "user")
 public class User {
@@ -34,7 +33,7 @@ public class User {
 	@Column(name = "surname")
 	private String surname;
 	@Column(name = "gender")
-	private Gender gender;
+	private String gender;
 	@Column(name = "email")
 	private String email;
 	@Column(name = "dateOfBirth")
@@ -42,7 +41,6 @@ public class User {
 	@Validate("required")
 	@Column(name = "type", nullable = false)
 	private String type;
-
 
 	public String getType() {
 		return type;
@@ -92,14 +90,6 @@ public class User {
 		this.surname = surname;
 	}
 
-	public Gender getGender() {
-		return gender;
-	}
-
-	public void setGender(Gender gender) {
-		this.gender = gender;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -121,7 +111,15 @@ public class User {
 		return "User [id=" + id + ", username=" + username + ", password="
 				+ password + ", name=" + name + ", surname=" + surname
 				+ ", gender=" + gender + ", email=" + email + ", dateOfBirth="
-				+ dateOfBirth + "]";
+				+ dateOfBirth + ", type=" + type + "]";
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 

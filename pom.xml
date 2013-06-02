@@ -46,6 +46,19 @@
 			<version>${easymock-release-version}</version>
 			<scope>test</scope>
 		</dependency>
+		
+		 <dependency>
+        <groupId>commons-collections</groupId>
+        <artifactId>commons-collections</artifactId>
+        <version>3.0</version>
+      </dependency>
+
+		<dependency>
+	<groupId>org.slf4j</groupId>
+	<artifactId>slf4j-log4j13</artifactId>
+	<version>1.0.1</version>
+</dependency>
+            
 
 		<dependency>
 			<groupId>org.apache.tapestry</groupId>
@@ -78,16 +91,22 @@
 			<version>${tapestry-release-version}</version>
 		</dependency>
 
-		 <dependency>
-        <groupId>org.got5</groupId>
-        <artifactId>tapestry5-jquery</artifactId>
-        <version>3.3.1</version>
-    </dependency>
+		<dependency>
+			<groupId>org.got5</groupId>
+			<artifactId>tapestry5-jquery</artifactId>
+			<version>3.3.1</version>
+		</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.18</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>3.7.5</version>
 		</dependency>
 
 	</dependencies>
@@ -149,24 +168,24 @@
 			<id>apache-staging</id>
 			<url>https://repository.apache.org/content/groups/staging/</url>
 		</repository>
-		 <repository>
-        <id>devlab722-repo</id>
-        <url>
+		<repository>
+			<id>devlab722-repo</id>
+			<url>
             http://nexus.devlab722.net/nexus/content/repositories/releases
         </url>
-        <snapshots>
-            <enabled>false</enabled>
-        </snapshots>
-    </repository>
-    <repository>
-        <id>devlab722-snapshot-repo</id>
-        <url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>devlab722-snapshot-repo</id>
+			<url>
             http://nexus.devlab722.net/nexus/content/repositories/snapshots
         </url>
-        <releases>
-            <enabled>false</enabled>
-        </releases>
-    </repository>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
 	</repositories>
 
 	<properties>

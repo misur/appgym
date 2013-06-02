@@ -1,0 +1,28 @@
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter">
+	<t:form t:id="form">
+
+		<t:errors />
+
+		<div class="t-beaneditor">
+
+			<t:beaneditor t:id="person" />
+
+			<h2>Phones</h2>
+
+			<div t:type="ajaxformloop" t:id="phones" source="list"
+				value="phone">
+
+				|
+
+				<t:removerowlink>remove</t:removerowlink>
+
+
+			</div>
+
+			<p>
+				<input class="button2" type="submit" value="Update" />
+			</p>
+		</div>
+	</t:form>
+</html>

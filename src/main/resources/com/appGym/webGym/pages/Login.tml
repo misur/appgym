@@ -10,34 +10,50 @@
 				<div class="box-shadow">
 					<div class="wrap block-2">
 						<div class="col-4">
-							<form t:type="form" t:id="loginForm">
-								<fieldset>
-									<table cellpadding="10" border="2">
-										<tr>
-											<td><p>Username:</p><br></br></td>
-											<td><input t:type="textfield" t:id="username" t:validate="username" /></td>
-										</tr>
-										<tr>
-											<td><p>Password:<br></br></p></td>
-											<td><input type="password" t:type="passwordfield" t:id="password"
-											t:validate="password" class="logininput" /></td>
-										</tr>
-										
-										
+							<fieldset>
+								<form t:type="form" t:id="loginForm">
 
-										
-										
+									<table>
+										<tr>
+											<td>
+												<p>
+													<b>Username:</b>
+												</p>
+											</td>
+											<td>
+												<input t:type="textfield" t:id="username" t:validate="username"
+													placeholder="username" />
+												<br></br>
+												<br></br>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<p>
+													<b>Password:</b>
+												</p>
+											</td>
+											<td>
+												<input type="password" t:type="passwordfield" t:id="password"
+													t:validate="password" placeholder="password" />
+											</td>
+										</tr>
+
+										<tr>
+											<td></td>
+											<td>
+												
+											</td>
+										</tr>
 									</table>
 									<div class="btns">
-										<t:linkSubmit t:value="Login" type="submit"
-											class="button2">
-											Login
-										</t:linkSubmit>
-									</div>
-
-								</fieldset>
-							</form>
-
+													<t:linkSubmit t:value="Login" type="submit"
+														class="button2">
+														Login
+													</t:linkSubmit>
+												</div>
+								</form>
+							</fieldset>
 						</div>
 					</div>
 				</div>

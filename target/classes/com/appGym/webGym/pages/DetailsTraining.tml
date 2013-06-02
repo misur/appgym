@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" t:type="layout" t:title="DetailsTraining"
+	t:pagetitle="DetailsTraining" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
+	xmlns:p="tapestry:parameter">
+
+
+	<div class="main">
+		<!--==============================content================================ -->
+		<section id="content">
+			<div class="ic">More Website Templates @ TemplateMonster.com. April
+				02, 2012!</div>
+			<div class="container_12">
+				<div class="grid_12">
+					<div class="box-shadow">
+						<div class="wrap block-2">
+							<div class="col-1">
+								<table class="table table-striped" witdth="100">
+									<tr>
+										<td>
+											<label>
+												<strong>Name :</strong>
+											</label>
+										</td>
+										<td>
+											<label>
+												${training.name}
+											</label>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label>
+												<strong>Description: </strong>
+												<br></br>
+											</label>
+										</td>
+										<td>
+											<p>
+												${training.description}</p>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label>
+												<strong>Rating :</strong>
+											</label>
+										</td>
+										<td>
+											<label>
+												${training.rating}
+											</label>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label>
+												<strong>Trainer :</strong>
+											</label>
+										</td>
+										<td>
+											<label>
+												${trainer.name}
+											</label>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label>
+												<strong>Price :</strong>
+											</label>
+										</td>
+										<td>
+											<label>
+												${training.price}e
+											</label>
+										</td>
+									</tr>
+									<tr>
+										<td>
+
+										</td>
+									</tr>
+								</table>
+
+								<t:if test="!user">
+
+									<t:form t:id="form">
+										<div class="btns">
+											<t:linkSubmit t:value="Add" class="button2">
+												Add
+												training
+											</t:linkSubmit>
+										</div>
+									</t:form>
+								</t:if>
+
+								<!-- <p:param_4> <t:componentParameter t:name="ratyStarOn" t:required="false" 
+									t:javaType="Asset" t:prefix="prop" t:defaultValue="" t:description="The asset 
+									containing the image you want to be displayed for an active star icon." /> 
+									</p:param_4> -->
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</section>
+	</div>
+
+</html>

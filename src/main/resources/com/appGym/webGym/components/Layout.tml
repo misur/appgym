@@ -1,56 +1,84 @@
-<html t:title="layout" t:sidebarTitle="Layout" 
-	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
-    xmlns:p="tapestry:parameter">
-<head>
-   
-    
-	<!--[if lt IE 8]>
-       <div style=' clear: both; text-align:center; position: relative;'>
-         <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-           <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
-        </a>
-      </div>
-    <![endif]-->
-    <!--[if lt IE 9]>
-   		<script type="text/javascript" src="layout/js/html5.js"></script>
-    	<link rel="stylesheet" type="text/css" media="screen" href="layout/css/ie.css">
-	<![endif]-->
-</head>
-<body>
-<div class="main">
-	<div class="bg-img"></div>
-<!--==============================header=================================-->
-    <header>
-        <h1><t:pagelink page="index" >Web <strong>GYM.</strong></t:pagelink></h1>
-        <nav>
-        	<div class="social-icons">
-            	<!-- <a href="#" class="icon-2"></a>
-            	<a href="#" class="icon-1"></a> -->
-            	<a class="icon-3" type="pagelink" href="CreateAccount"></a>
-            	<a class="icon-4" type="pagelink" href="Login"></a>
-            </div>
-            <ul class="menu">
-                 <li ><t:pagelink page="index" >Index</t:pagelink></li>
-                <li><t:pagelink page="trainings" >Trainings</t:pagelink></li> 
-                <li><t:pagelink page="timetable" >Timetable</t:pagelink></li>
-                <li  ><t:pagelink page="nutrition" >Nutrition</t:pagelink></li>
-                <li ><t:pagelink page="gallery" >Gallery</t:pagelink></li>
-                <li ><t:pagelink page="contacts" >Contacts</t:pagelink></li>
-            </ul>
-        </nav>
-    </header>   
-<!--==============================content================================-->
-    <t:body></t:body>
-<!--==============================footer=================================-->
-    <footer>
-              <p>� 2013 Web GYM</p>
-        <p><a rel="nofollow"  class="link" target="_blank"></a> by misur.com  </p>
-         </footer>	
-          <h2>${title}</h2>
-          <h2>${sidebarTitle}</h2>
-</div>    
-<script>
-	Cufon.now();
-</script>
-</body>
+<html t:title="layout" t:sidebarTitle="Layout"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+	<head>
+
+
+		<!--[if lt IE 8]> <div style=' clear: both; text-align:center; position: 
+			relative;'> <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"> 
+			<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" 
+			border="0" height="42" width="820" alt="You are using an outdated browser. 
+			For a faster, safer browsing experience, upgrade for free today." /> </a> 
+			</div> <![endif] -->
+		<!--[if lt IE 9]> <script type="text/javascript" src="layout/js/html5.js"></script> 
+			<link rel="stylesheet" type="text/css" media="screen" href="layout/css/ie.css"> 
+			<![endif] -->
+	</head>
+	<body>
+		<div class="main">
+			<div class="bg-img"></div>
+			<!--==============================header================================= -->
+			<header>
+				<h1>
+					<t:pagelink page="index">
+						Web
+						<strong>GYM.</strong>
+					</t:pagelink>
+				</h1>
+				<nav>
+					<div class="social-icons">
+						<t:if test="user">
+							<a class="icon-5.png" t:type="actionlink" href="#" t:id="logout">
+								<img src="layout/images/icon-5.png" />
+							</a>
+							<t:if test="admin">
+								<a class="icon-6" type="pagelink" href="ReviewUsers"></a>
+							</t:if>
+
+							<p:else>
+								<a class="icon-8" type="pagelink" href="CreateAccount"></a>
+								<a class="icon-7" type="pagelink" href="Login"></a>
+
+							</p:else>
+						</t:if>
+
+					</div>
+					<ul class="menu">
+						<li>
+							<t:pagelink page="index">Index</t:pagelink>
+						</li>
+						<li>
+							<t:pagelink page="trainings">Trainings</t:pagelink>
+						</li>
+						<li>
+							<t:pagelink page="timetable">Timetable</t:pagelink>
+						</li>
+						<li>
+							<t:pagelink page="nutrition">Nutrition</t:pagelink>
+						</li>
+						<li>
+							<t:pagelink page="gallery">Gallery</t:pagelink>
+						</li>
+						<li>
+							<t:pagelink page="contacts">Contacts</t:pagelink>
+						</li>
+					</ul>
+				</nav>
+			</header>
+			<!--==============================content================================ -->
+			<t:body />
+			<!--==============================footer================================= -->
+			<footer>
+				<p> 2013 Web GYM</p>
+				<p>
+					<a rel="nofollow" class="link" target="_blank"></a>
+					by misur.com
+				</p>
+			</footer>
+			<h2>${title}</h2>
+			<h2>${sidebarTitle}</h2>
+		</div>
+		<script>
+			Cufon.now();
+		</script>
+	</body>
 </html>
