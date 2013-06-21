@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" t:type="layout" t:title="Index" t:pagetitle="Index"
 	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
-<script>
+	<script>
 		$(window).load(function(){
-			$('.slider')._TMS({
-			prevBu:'.prev',
-			nextBu:'.next',
-			pauseOnHover:true,
-			pagNums:false,
-			duration:800,
-			easing:'easeOutQuad',
-			preset:'Fade',
-			slideshow:7000,
-			pagination:'.pagination',
-			waitBannerAnimation:false,
-			banners:'fade'
-			})
-		}) 	
-    </script>
+		$('.slider')._TMS({
+		prevBu:'.prev',
+		nextBu:'.next',
+		pauseOnHover:true,
+		pagNums:false,
+		duration:800,
+		easing:'easeOutQuad',
+		preset:'Fade',
+		slideshow:7000,
+		pagination:'.pagination',
+		waitBannerAnimation:false,
+		banners:'fade'
+		})
+		})
+	</script>
 	<div class="main">
 		<section id="content">
 			<div class="ic">More Website Templates @ TemplateMonster.com. April
@@ -83,19 +83,12 @@
 				</div>
 				<div class="grid_12 top-1">
 					<div class="block-1 box-shadow">
-						<p class="font-3">
-							Fitness Club is one of
-							<a href="http://blog.templatemonster.com/free-website-templates/"
-								target="_blank" class="color-1">free website templates</a>
-							created by TemplateMonster. This website template is optimized
-							for 1280X1024 screen resolution. This
-							<a
-								href="http://blog.templatemonster.com/2012/04/02/free-website-template-jquery-slider-fitness-club/"
-								class="color-1">Fitness Club Template</a>
-							goes with 2 packages � with PSD source files and without them.
-							PSD source files are available for free for the registered
-							members of TemplateMonster.com.
-						</p>
+						<t:if test="membership">
+							<t:pageLink t:page="CreateMembership" class="button2">
+								
+								Membership
+							</t:pageLink>
+						</t:if>
 					</div>
 				</div>
 				<div class="grid_12 top-1">
@@ -103,59 +96,37 @@
 						<div class="wrap block-2">
 							<div class="col-1">
 								<h2 class="p3">
-									<span class="color-1">Latest</span>
-									events
+									<span class="color-1">Last updated </span>
+									training
 								</h2>
+								<t:if test="training">
 								<div class="wrap box-1">
 									<img src="layout/images/page1-img1.jpg" alt=""
 										class="img-border img-indent" />
 									<div class="extra-wrap">
 										<p class="p2">
-											<strong>Ut wisi enim ad minim veniamis nostrud</strong>
+											<strong>${training.getName()}</strong>
 										</p>
-										<p>Exerci tation ullamcorper suscipit lobortis nisl ut aliquip
-											ex ea commodo consequat. Duis autem vel eum iriure dolor in
-											hendrerit in vulputate velit esse molestie consequat, vel
-											illum dolore eu feugiat nulla facilisis at vero eros et
-											accumsan et iusto odio dignissim.</p>
+										<p>${training.getDescription()}</p>
 									</div>
 								</div>
-								<div class="wrap box-1 top-2">
-									<img src="layout/images/page1-img2.jpg" alt=""
-										class="img-border img-indent" />
-									<div class="extra-wrap">
-										<p>
-											<strong>Duis autem vel eum iriure dolor</strong>
-										</p>
-										<p>Hendrerit in vulputate velit esse molestie consequat, vel
-											illum dolore eu feugiat nulla facilisis at vero eros et
-											accumsan et iusto odio dignissim qui blandit praesent
-											luptatum zzril delenit augue duis dolore te feugait nulla
-											facilis lorem ipsum dolor.</p>
-									</div>
-								</div>
+								</t:if>
 							</div>
 							<div class="col-2">
 								<h2 class="p3">
-									<span class="color-1">Services</span>
+									<span class="color-1">Trainer</span>
 									list
 								</h2>
 								<ul class="list-1">
-									<li>
-										<a href="#">Lorem ipsum dolor sit amet</a>
-									</li>
-									<li>
-										<a href="#">Consetetur sadipscing elitr sed</a>
-									</li>
-									<li>
-										<a href="#">Diam nonumy eirmod tempor</a>
-									</li>
-									<li>
-										<a href="#">Invidunt ut labore dolore</a>
-									</li>
-									<li>
-										<a href="#">Magna aliquyam erat sed</a>
-									</li>
+									<t:loop source="trainers" value="trainer">
+
+											<li>
+												<t:pagelink page="TrainerDitails" context="trainer.id">
+													${trainer.name}
+												</t:pagelink>
+											</li>
+
+										</t:loop>
 								</ul>
 								<div class="form-search">
 									<h2>

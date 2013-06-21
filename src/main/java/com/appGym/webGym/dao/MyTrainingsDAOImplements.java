@@ -10,6 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
 import com.appGym.webGym.entities.MyTrainings;
+import com.appGym.webGym.entities.Training;
 import com.appGym.webGym.entities.User;
 
 public class MyTrainingsDAOImplements implements MyTrainingsDAO {
@@ -59,7 +60,7 @@ public class MyTrainingsDAOImplements implements MyTrainingsDAO {
 	public MyTrainings findTrainingByUserIDAndTrainingID(Long id ,User user){
 		List<MyTrainings>list =session.createCriteria(MyTrainings.class).list();
 		for (int i = 0; i < list.size(); i++) {
-			if(list.get(i).getPk().getTraining().getId().equals(id)&&list.get(i).getPk().getUser().getId().equals(user.getId())){
+			if(list.get(i).getTraining().getId().equals(id)&&list.get(i).getUser().getId().equals(user.getId())){
 				return list.get(i);
 			}
 		}
@@ -89,6 +90,9 @@ public class MyTrainingsDAOImplements implements MyTrainingsDAO {
 	}
 
 	public List<MyTrainings> getTrainings(User user) {
+		if(user==null){
+			return null;
+		}
 		List<MyTrainings> tempList = session.createCriteria(MyTrainings.class)
 				.list();
 		List<MyTrainings> list = new ArrayList<MyTrainings>();
@@ -101,7 +105,23 @@ public class MyTrainingsDAOImplements implements MyTrainingsDAO {
 	}
 
 	public MyTrainings findByID(Long id) {
-		// TODO Auto-generated method stub
+		if (id != null) {
+			return (MyTrainings) session.get(MyTrainings.class, id);
+		}
 		return null;
+	}
+	
+	public List<MyTrainings> findAllUserFromTraining(Training training){
+		List<MyTrainings>trainings =session.createCriteria(MyTrainings.class).list();
+		return trainings;
+	}
+	
+	public int numberOfPeopleOnTraining(Long id){
+		int count= 0;
+		List<MyTrainings>trainings =session.createCriteria(MyTrainings.class).list();
+		for (int i = 0; i < trainings.size(); i++) {
+			if(trainings.get(i).getTraining().getTrainer().getId().equals(id))count++;
+		}
+		return count;
 	}
 }

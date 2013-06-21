@@ -67,6 +67,22 @@ public class AddPersonalTraining {
 	private List<EvidenceExercise> list ;
 	
 	private List<Long> listForDelete =new ArrayList<Long>() ;
+	
+	@Property
+	private boolean visibility;
+	
+	@Property
+	private Exercise exerciseList;
+
+
+	@Property
+	private String description;
+
+	@Property
+	private String type;
+
+	@Property
+	private String videoLink;
  
 	void onActivate(){
 		list = new ArrayList<EvidenceExercise>();
@@ -101,7 +117,7 @@ public class AddPersonalTraining {
 		this.training2 = training2;
 	}
 	
-	Object onSubmitFromForm() {
+	Object onSubmitFromExerciseForm()   {
 		evidenceExercise=  new EvidenceExercise();
 		evidenceExercise.setDay(selectedDays);
 		evidenceExercise.setTraining(training2);
@@ -145,4 +161,29 @@ public class AddPersonalTraining {
 		trainingDAO.deleteByID(training2.getId());
 		return Trainings.class;
 	}
+	void onActionFromVisible() {
+		System.out.println("Prikazi");
+		this.visibility=true;
+	}
+	
+	
+
+	boolean onSubmitFromForm() {
+		Exercise exercise = new Exercise();
+		exercise.setDescription(description);
+		exercise.setType(type);
+		exercise.setVideoLink(transformURL(videoLink));
+		if (exercise != null) {
+			exerciseDAO.save(exercise);
+			return true;
+		}
+		return false;
+	}
+	
+	public String transformURL(String s){
+		StringBuffer sb = new StringBuffer(s);
+		sb.delete(0, sb.indexOf("=")+1);
+		return sb.toString();
+	}
+	
 }

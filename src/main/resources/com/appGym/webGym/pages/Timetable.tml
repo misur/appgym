@@ -5,71 +5,127 @@
 	<div class="main">
 		<!--==============================content================================ -->
 		<section id="content">
-			<div class="ic">More Website Templates @ TemplateMonster.com. April
-				02, 2012!</div>
+			
 			<div class="container_12">
 				<div class="grid_12">
 					<div class="box-shadow">
 						<div class="wrap block-2">
+						<div clas="btns">
+						
+							<t:if test="UserF">
+								<t:pageLink t:page="AddToTimetable" class="button2">
+								
+								AddToTimetable
+							</t:pageLink>
+							<t:actionLink t:id ="clear"  class="button2">
+									Clear
+								</t:actionLink>
+								</t:if>
+							</div>
 							<div>
 								<h2 class="p3">
 									<span class="color-1">Our</span>
 									timetable
 								</h2>
 								<div class="wrap box-2 border-1">
-									<div>
-										<p>
-											<strong class="color-1">Time</strong>
-										</p>
-										<p class="color-1">8:00-9:00</p>
-									</div>
+									
 									<div>
 										<p>
 											<strong>Monday</strong>
 										</p>
-										<t:form t:id="form">
-										<t:select t:id="selectedTraining" model="Trainings"
-													encoder="Trainings" value="selectedTraining" t:blankLabel="choose..." />
-													</t:form>
+										 <t:loop source="mondayTrainings" value="monday">
+										 	<p><span class="color-1">${ monday.getTime()}</span></p>
+										 
+										 <p>${ monday.getTraining().getName()}</p>
+										 
+										 
+										 </t:loop>
+										
 									</div>
 									<div>
 										<p>
 											<strong>Tuesday</strong>
 										</p>
+										 <t:loop source="tuesdayTrainings" value="tuesday">
+										 	<p><span class="color-1">${ tuesday.getTime()}</span></p>
+										 
+										 <p>${ tuesday.getTraining().getName()}</p>
+										 
+										 
+										 </t:loop>
 									</div>
 									<div>
 										<p>
 											<strong>Wednesday</strong>
 										</p>
+										 <t:loop source="wednesdayTrainings" value="wednesday">
+										 	<p><span class="color-1">${ wednesday.getTime()}</span></p>
+										 
+										 <p>${ wednesday.getTraining().getName()}</p>
+										 
+										 
+										 </t:loop>
 									</div>
 									<div>
 										<p>
 											<strong>Thursday</strong>
 										</p>
+										 <t:loop source="thursdayTrainings" value="thursday">
+										 	<p><span class="color-1">${ thursday.getTime()}</span></p>
+										 
+										 <p>${ thursday.getTraining().getName()}</p>
+										 
+										 
+										 </t:loop>
 									</div>
 									<div>
 										<p>
 											<strong>Friday</strong>
 										</p>
+										 <t:loop source="fridayTrainings" value="friday">
+										 	<p><span class="color-1">${ friday.getTime()}</span></p>
+										 
+										 <p>${ friday.getTraining().getName()}</p>
+										 
+										 
+										 </t:loop>
 									</div>
 									<div>
 										<p>
 											<strong>Saturday</strong>
 										</p>
+										 <t:loop source="saturdayTrainings" value="saturday">
+										 	<p><span class="color-1">${ saturday.getTime()}</span></p>
+										 
+										 <p>${ saturday.getTraining().getName()}</p>
+										 
+										 
+										 </t:loop>
 									</div>
 									<div class="last">
 										<p>
 											<strong>Sunday</strong>
 										</p>
+										 <t:loop source="sundayTrainings" value="sunday">
+										 	<p><span class="color-1">${ sunday.getTime()}</span></p>
+										 
+										 <p>${ sunday.getTraining().getName()}</p>
+										 
+										 
+										 </t:loop>
 									</div>
 								</div>
-								<div class="wrap box-2 border-1">
+						<!-- 		<div class="wrap box-2 border-1">
 									<div>
 										<p class="color-1">9:00-10:00</p>
+										
 									</div>
 									<div>
+										b
+									
 									</div>
 									<div>
+									
 									</div>
 									<div>
 									</div>
@@ -81,6 +137,7 @@
 										<p class="color-1">10:00-11:00</p>
 									</div>
 									<div>
+									c
 									</div>
 									<div class="last">
 									</div>
@@ -131,30 +188,14 @@
 									<div class="last">
 									</div>
 								</div>
-
+ -->
 							</div>
 
-
-
-
-
-							<!-- <div class="col-2"> <h2 class="p3"><span class="color-1">Events</span> 
-								Schedule</h2> <p class="p2"><strong>Nam liber tempor cum</strong></p> <p>Option 
-								congue nihil imperdiet doming id quod mazim placerat facer possim assum:</p> 
-								<img src="layout/images/page3-img1.jpg" alt="" class="img-border pad-1"/> 
-								<ul class="list-2"> <li><a href="#">Lorem ipsum dolor sit amet</a></li> <li><a 
-								href="#">Consectetuer adipiscing elit</a></li> <li><a href="#">Diam nonummy 
-								nibh</a></li> <li><a href="#">Euismod tincidunt ut laoreet</a></li> <li><a 
-								href="#">Dolore magna aliquamerat</a></li> </ul> <a href="#" class="button2 
-								top-5">Read more</a> </div> -->
 						</div>
 					</div>
 				</div>
-				<div class="clear"></div>
 			</div>
 		</section>
 	</div>
-	<script>
-		Cufon.now();
-	</script>
+	
 </html>

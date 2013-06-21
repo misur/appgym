@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.apache.tapestry5.ComponentResources;
+import org.apache.tapestry5.StreamResponse;
 import org.apache.tapestry5.annotations.OnEvent;
 import org.apache.tapestry5.annotations.Persist;
 import org.apache.tapestry5.annotations.Property;
@@ -20,11 +21,16 @@ import org.got5.tapestry5.jquery.components.InPlaceEditor;
 import com.appGym.webGym.annotations.AdminAccess;
 import com.appGym.webGym.annotations.AnonymousAccess;
 import com.appGym.webGym.annotations.UserAccess;
+import com.appGym.webGym.dao.MembershipDAO;
 import com.appGym.webGym.dao.TrainingDAO;
 import com.appGym.webGym.dao.UserDAO;
+import com.appGym.webGym.entities.Membership;
 import com.appGym.webGym.entities.Training;
 import com.appGym.webGym.entities.User;
 import com.appGym.webGym.model.user.GenericSelectModel;
+import com.appGym.webGym.reports.ExportFormat;
+import com.appGym.webGym.reports.ListReports;
+import com.appGym.webGym.reports.RunReport;
 
 @UserAccess
 @AdminAccess
@@ -52,16 +58,25 @@ public class ReviewUsers {
 	@Inject
 	private UserDAO dao;
 
-	@Property
-	@Persist
-	private String selectedTypes;
-	private GenericSelectModel<String> types;
+//	@Property
+//	@Persist
+//	private String selectedTypes;
+//	private GenericSelectModel<String> types;
 	
 	@Property
 	private Training training;
 	
 	@Property
 	private List<Training> trainingList =getTrainings();
+	
+	@Inject
+	private MembershipDAO membershipDAO;
+	
+	@Property
+	private Membership membership;
+	
+	@Property
+	private List<Membership>memerships = getMemberships() ; 
 	
 	@Inject
 	private TrainingDAO trainingDAO;
@@ -74,10 +89,25 @@ public class ReviewUsers {
 		
 		return trainingDAO.findAll();
 	}
+	
+	public List<Membership> getMemberships() {
+		return  membershipDAO.findAll();
+	}
 
 	public GenericSelectModel<String> getTypes() {
 		List<String> arr =  Arrays.asList("admin","user","trainer");
 		return new GenericSelectModel<String>(arr, String.class, null, null, access);
+	}
+	@OnEvent(component = "runReport")
+	public StreamResponse onRunReport() {
+		return RunReport.getRunReport(ListReports.ALL_USERS,
+				ExportFormat.PDF, null, "All_USERS");
+	}
+	
+	@OnEvent(component = "runReportTrainings")
+	public StreamResponse onRunReportTrainings() {
+		return RunReport.getRunReport(ListReports.ALL_TRAININGS,
+				ExportFormat.PDF, null, "ALL_TRAININGS");
 	}
 
 	
@@ -110,6 +140,13 @@ public class ReviewUsers {
 		myModel.add("action", null);
 		myModel.include("name","type","rating","price","action");
 		return myModel;
+	}
+	
+	public BeanModel getMyModel2() {
+		BeanModel myModel = _beanModelSource.createDisplayModel(Membership.class,
+				_componentResources.getMessages());
+		return myModel;
+		
 	}
 
 	private User createUser(int i) {
@@ -165,10 +202,10 @@ public class ReviewUsers {
 		dao.update(user);
 	}
 
-	@OnEvent(component = "selectedTypes", value = InPlaceEditor.SAVE_EVENT)
+	@OnEvent(component = "type", value = InPlaceEditor.SAVE_EVENT)
 	void setType(Long id, String value) {
 		User user = (User) users.get(id.intValue());
-		user.setType(selectedTypes);
+		user.setType(value);
 		dao.update(user);
 	}
 

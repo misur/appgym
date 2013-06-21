@@ -1,14 +1,26 @@
 <html t:type="layout" t:title="Create Account" t:pagetitle="Create Account"
-	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter"
+	xmlns:j="tapestry-library:jquery">
+	
+	<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css" />
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
+</head>
 	<section id="content">
-		<div class="ic">More Website Templates @ TemplateMonster.com. April
-			02,
-			2012!</div>
 		<div class="container_12">
 			<div class="grid_12">
 				<div class="box-shadow">
 					<div class="wrap block-2">
 						<div class="col-1">
+						
 							<t:form t:id="form">
 								<fieldset>
 									<table cellpadding="10" border="2">
@@ -60,7 +72,7 @@
 												<br></br>
 											</td>
 											<td>
-											<t:select t:id="selectedGender" model="genders"
+												<t:select t:id="selectedGender" model="genders"
 													encoder="genders" value="selectedGender" t:blankLabel="choose..." />
 											</td>
 										</tr>
@@ -82,10 +94,27 @@
 												<br></br>
 											</td>
 											<td>
-												<input t:type="datefield" t:label="dateOfBirth" t:id="dateOfBirth"
-													t:value="dateOfBirth" />
+													<input type="text"  id="datepicker"  t:value="dateOfBirth" t:lable="dateOfBirth"/>
 											</td>
 										</tr>
+										
+										<tr>
+											<td>
+												<h3>Phone :</h3>
+												<br></br>
+											</td>
+											<td>
+												<input  type="text" t:type="textfield"  t:label="phone" t:id="phone"
+													t:value="phone" />
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												
+											</td>
+										</tr>
+
 									</table>
 
 									<div class="btns">
@@ -96,11 +125,33 @@
 
 								</fieldset>
 							</t:form>
+							<h3>Image :</h3>
+							<j:ajaxUpload t:id="uploadImage1" t:multiple="true"
+													t:allowedExtensions="[jpg, 
+													png, gif]"
+													t:sizeLimit="1M">
+													<noscript>
+														<p>JavaScript must be activated!</p>
+													</noscript>
+												</j:ajaxUpload>
+												<t:zone t:id="uploadResult">
+													<div>
+														<t:if test="message">
+															<p>
+																<strong>${message}</strong>
+															</p>
+														</t:if>
+														<t:if test="uploadedFiles">
+															<h4>Uploaded files</h4>
+															<t:grid source="uploadedFiles"></t:grid>
+														</t:if>
+													</div>
+												</t:zone>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="clear"></div>
+			
 		</div>
 	</section>
 </html>

@@ -40,6 +40,10 @@ public class Training {
 	@Column(name = "rating", nullable = false)
 	private int rating;
 	
+	@Validate("required")
+	@Column(name = "duration", nullable = false)
+	private int duration ;
+	
 
 	@Validate("required")
 	@Column(name = "price", nullable = false)
@@ -111,6 +115,14 @@ public class Training {
 
 	public void setPrice(double price) {
 		this.price = price;
+	}
+
+	public int getDuration() {
+		return duration;
+	}
+
+	public void setDuration(int duration) {
+		this.duration = duration;
 	}
 	
 	

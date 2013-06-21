@@ -90,5 +90,10 @@ public class UserDAOImplements implements UserDAO {
 		}
 		return false;
 	}
+	
+	public List<User> findUserByType(String type){
+		List<User> users =session.createCriteria(User.class).add(Restrictions.eq("type", type)).list();
+		return users;
+	}
 
 }

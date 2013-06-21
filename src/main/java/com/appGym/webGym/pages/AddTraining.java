@@ -40,6 +40,8 @@ public class AddTraining {
 	@Property
 	private String name;
 	@Property
+	private int duration;
+	@Property
 	private double price;
 	@Inject
 	private TrainingDAO trainingDAO;
@@ -53,6 +55,7 @@ public class AddTraining {
 
 	@Inject
 	private PropertyAccess access;
+	
 	@Persist
 	@Property
 	private boolean typeTrainig;
@@ -82,12 +85,13 @@ public class AddTraining {
 		}
 
 		Training t = new Training();
+		t.setDuration(duration);
 		t.setPrice(price);
 		t.setDescription(description);
 		t.setName(name);
 		t.setType(selectedTypes);
 		t.setTrainer(authenticator.getLoggedUser());
-		if(t.getName()==null||t.getDescription()==null||t.getType()==null||t.getPrice()==0){
+		if(t.getName()==null||t.getDescription()==null||t.getType()==null||t.getPrice()==0||t.getDuration()==0){
 			return null;
 		}
 		trainingDAO.save(t);
@@ -101,56 +105,4 @@ public class AddTraining {
 		
 	}
 
-	@Property
-	@Persist
-	private EvidenceExercise evidenceExercise;
-
-	@Property
-	private Exercise selectedExercise;
-	@Property
-	private GenericSelectModel<Exercise> exercises;
-
-	@Property
-	private Boolean deleted;
-
-	
-
-	@Inject
-	private ExerciseDAO exerciseDAO;
-	@Inject
-	private EvidenceExerciseDAO evidenceExerciseDAO;
-
-//	@OnEvent(EventConstants.ACTIVATE)
-//	void init() {
-//		if (evidenceExercise == null)
-//			evidenceExercise = new EvidenceExercise();
-//	}
-//
-//	public GenericSelectModel<Exercise> getExercisess() {
-//		List<Exercise> arr = exerciseDAO.findAll();
-//		return new GenericSelectModel<Exercise>(arr, Exercise.class, null,
-//				null, access);
-//	}
-//
-//	@OnEvent(EventConstants.SUCCESS)
-//	public Object onSuccess() {
-//
-//		return this;
-//	}
-//
-//	@OnEvent(value = EventConstants.ADD_ROW, component = "evidenceExercise")
-//	public Object onAddRowFromPhones() {
-//		evidenceExercise = new EvidenceExercise();
-//		evidenceExercise.setDay(selectedDays);
-//		Training t=  new Training();
-//		evidenceExercise.setTrainig(t);
-//		evidenceExercise.setExercise(selectedExercise);
-//
-//		return null;
-//	}
-//
-//	@OnEvent(value = EventConstants.REMOVE_ROW, component = "evidenceExercise")
-//	void onRemoveRowFromPhones(Day day) {
-//		// evidenceExerciseDAO.findByDay(day).;
-//	}
 }

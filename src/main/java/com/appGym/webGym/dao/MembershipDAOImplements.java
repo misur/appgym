@@ -9,6 +9,7 @@ import org.hibernate.criterion.Restrictions;
 
 import com.appGym.webGym.entities.Exercise;
 import com.appGym.webGym.entities.Membership;
+import com.appGym.webGym.entities.User;
 
 public class MembershipDAOImplements implements MembershipDAO {
 	@Inject
@@ -60,6 +61,7 @@ public class MembershipDAOImplements implements MembershipDAO {
 		if (list != null) {
 			if (list.size() > 0) {
 				m = (Membership) list.get(0);
+				return m;
 			}
 		}
 		return null;
@@ -75,5 +77,32 @@ public class MembershipDAOImplements implements MembershipDAO {
 		}
 		return false;
 	}
+
+	public boolean check(User user) {
+		// TODO Auto-generated method stub
+		if (user == null) {
+			return false;
+		}
+		List<Membership> list = findAll();
+		System.out.println(list);
+//		for (int i = 0; i < list.size(); i++) {
+//			if (list.get(i).getUser().getId().equals(user.getId())) {
+//				 return true;
+//			}
+//		}
+		return false;
+	}
 	
+	public Membership findMembershipByUser(Long id){
+		List<Membership> list = session.createCriteria(Membership.class).list();
+		if(list!=null){
+			for (int i = 0; i < list.size(); i++) {
+				if(list.get(i).getUser().getId()==id){
+					return list.get(i);
+ 				}
+			}
+		}
+		return null;
+	}
+
 }

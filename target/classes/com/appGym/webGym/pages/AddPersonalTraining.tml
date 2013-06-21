@@ -1,15 +1,14 @@
 <html t:type="layout" t:title="AddPersonalTraining" t:pagetitle="AddPersonalTraining"
 	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
 	<section id="content">
-		<div class="ic">More Website Templates @ TemplateMonster.com. April
-			02,
-			2012!</div>
 		<div class="container_12">
 			<div class="grid_12">
 				<div class="box-shadow">
 					<div class="wrap block-2">
-						<div class="col-4">
-							<t:form t:id="form">
+						<div class="col-1">
+
+
+							<t:form t:id="exerciseForm">
 								<p>
 									<span class="color-1">Name :</span>
 									${training2.name}
@@ -27,26 +26,34 @@
 								<t:select t:id="exercise" model="ExercisesList"
 									encoder="ExercisesList" value="exercise" t:blankLabel="choose..." />
 									
-								<div class="btns"> 	
-								<t:linkSubmit t:value="Send" class="button2">
-									Add Exercise
-								</t:linkSubmit>
-								<t:pageLink t:page="Trainings" class="button2">
-									Create
-								</t:pageLink>
-								
-								<t:actionLink t:id ="cancel" href="Trainings" class="button2">
-									Cancel
-								</t:actionLink>
+
+								<div class="btns">
+									<t:linkSubmit t:value="Send" class="button2">
+										Add Exercise
+									</t:linkSubmit>
+									<t:pageLink t:page="Trainings" class="button2">
+										Create
+									</t:pageLink>
+
+									<t:actionLink t:id="cancel" href="Trainings"
+										class="button2">
+										Cancel
+									</t:actionLink>
 								</div>
 							</t:form>
+
+
+
 						</div>
 
-						<div class="col-3">
-							<a class="button2" href="#" t:type="pageLink" t:page="AddExercise">Add
-								New
-								Exercise</a>
-
+						<div class="col-2">
+							<t:actionLink t:id="Visible" href="#" class="button2">
+								Add New
+								Exercise
+							</t:actionLink>
+							<t:if test="visibility">
+								cccccccccccc
+							</t:if>
 							<ul class="list-2">
 								<t:loop source="list" value="evidenceExercise">
 									<li>
@@ -58,13 +65,70 @@
 											<span class="color-1">Day :</span>
 											${evidenceExercise.getDay()}
 										</p>
-										
+
 										<t:actionlink t:id="delete" context="evidenceExercise.getID()">
-															<img src="layout/images/icon-5.png" />
-														</t:actionlink>
+											<img src="layout/images/icon-5.png" />
+										</t:actionlink>
 									</li>
 								</t:loop>
 							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container_12">
+			<div class="grid_12">
+				<div class="box-shadow">
+					<div class="wrap block-2">
+						<div class="col-2">
+							<t:form t:id="form">
+								<table>
+									<tr>
+										<td>
+											<p>Type :</p>
+										</td>
+										<td>
+
+											<input type="text" t:type="textfield" t:label="type"
+												t:id="type" t:value="type" />
+									
+										</td>
+
+									</tr>
+									<tr>
+										<td>
+											<h3>Description:</h3>
+											<br></br>
+										</td>
+										<td>
+
+											<input type="text" t:type="textarea" t:label="description"
+												t:id="description" t:value="description" />
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<br></br>
+											<h3>Video URl :</h3>
+
+										</td>
+										<td>
+											<br></br>
+											<lable>
+												<input type="text" t:type="textfield" t:label="videoLink"
+													t:id="videoLink" t:value="videoLink" />
+											</lable>
+										</td>
+									</tr>
+								</table>
+								<div class="btns">
+									<t:linkSubmit t:value="Send" class="button2">
+										ADD
+									</t:linkSubmit>
+								</div>
+							</t:form>
 						</div>
 					</div>
 				</div>

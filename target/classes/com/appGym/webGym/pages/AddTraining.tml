@@ -1,9 +1,6 @@
 <html t:type="layout" t:title="AddTraining" t:pagetitle="AddTraining"
 	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
 	<section id="content">
-		<div class="ic">More Website Templates @ TemplateMonster.com. April
-			02,
-			2012!</div>
 		<div class="container_12">
 			<div class="grid_12">
 				<div class="box-shadow">
@@ -45,6 +42,18 @@
 												<br></br>
 												<input type="text" t:type="textfield" t:label="price"
 													t:id="price" t:value="price" />
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<br></br>
+												<h3>Duration :</h3>
+
+											</td>
+											<td>
+												<br></br>
+												<input type="text" t:type="textfield" t:label="duration"
+													t:id="duration" t:value="duration" />
 											</td>
 										</tr>
 										<tr>

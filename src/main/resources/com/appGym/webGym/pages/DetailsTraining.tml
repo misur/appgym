@@ -77,6 +77,18 @@
 									</tr>
 									<tr>
 										<td>
+											<label>
+												<strong>Duration :</strong>
+											</label>
+										</td>
+										<td>
+											<label>
+												${training.duration}min
+											</label>
+										</td>
+									</tr>
+									<tr>
+										<td>
 
 										</td>
 									</tr>
@@ -93,11 +105,38 @@
 										</div>
 									</t:form>
 								</t:if>
-
 								<!-- <p:param_4> <t:componentParameter t:name="ratyStarOn" t:required="false" 
 									t:javaType="Asset" t:prefix="prop" t:defaultValue="" t:description="The asset 
 									containing the image you want to be displayed for an active star icon." /> 
 									</p:param_4> -->
+									
+										<t:if test="trainerV">
+									<div class="col-1">
+								<t:zone t:id="zone" id="zone">
+									<t:grid source="users" row="myTrainings" model="myModel"
+										t:inplace="true" rowIndex="currentIndex" rowsPerPage="10">
+										<p:nameCell>
+											${myTrainings.getUser().getName()}
+										</p:nameCell>
+										<p:addCell>
+
+											<t:actionlink t:id="AddPresence" context="myTrainings.getId()">
+												<img src="layout/images/icon-8.png" />
+											</t:actionlink>
+
+
+
+
+										</p:addCell>
+										<p:reduceCell>
+									<!-- 		<t:actionlink t:id="reducePresence" context="myTrainings.getId()">
+												<img src="layout/images/icon-5.png" />
+											</t:actionlink> -->
+										</p:reduceCell>
+									</t:grid>
+								</t:zone>
+							</div>
+							</t:if>
 							</div>
 						</div>
 

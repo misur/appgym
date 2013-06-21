@@ -1,4 +1,4 @@
-<html t:type="layout" t:title="DetailsPersonalTraining"
+<html t:type="Layout" t:title="DetailsPersonalTraining"
 	t:pagetitle="DetailsPErsonalTraining" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd"
 	xmlns:p="tapestry:parameter">
 	<section id="content">
@@ -6,7 +6,7 @@
 			<div class="grid_12">
 				<div class="box-shadow">
 					<div class="wrap block-2">
-						<div class="col-1">
+						<div class="col-2">
 							<p>
 								<span class="color-1">Name :</span>
 								${training.getName()}
@@ -19,40 +19,90 @@
 								<span class="color-1">Price :</span>
 								${training.getPrice()}
 							</p>
-							<t:if test="!user">
+							<p>
+								<span class="color-1">Duration :</span>
+								${training.getDuration()} min
+							</p>
+							<t:if test="!user1">
 
-							<t:form t:id="form">
+								<t:form t:id="form">
 									<t:linkSubmit t:value="Add" class="button2">
 										Add
 										training
 									</t:linkSubmit>
-							</t:form>
+								</t:form>
+
+
+
+							</t:if>
+
+
+						</div>
+
+						<t:if test="trainerV">
+							<div class="col-1">
+								<t:zone t:id="zone" id="zone">
+									<t:grid source="users" row="myTrainings" model="myModel"
+										t:inplace="true" rowIndex="currentIndex" rowsPerPage="10">
+										<p:nameCell>
+											${myTrainings.getUser().getName()}
+										</p:nameCell>
+										<p:addCell>
+
+											<t:actionlink t:id="AddPresence" context="myTrainings.getId()">
+												<img src="layout/images/icon-8.png" />
+											</t:actionlink>
+
+
+
+
+										</p:addCell>
+										<p:reduceCell>
+									<!-- 		<t:actionlink t:id="reducePresence" context="myTrainings.getId()">
+												<img src="layout/images/icon-5.png" />
+											</t:actionlink> -->
+										</p:reduceCell>
+									</t:grid>
+								</t:zone>
+							</div>
+
+							<p:else>
+
+								<div class="col-2">
+
+									<p>
+										<span class="color-1"> Trainer name :</span>
+										${training.getTrainer().getName()}
+									</p>
+									<p>
+										<span class="color-1">Trainer email :</span>
+										${training.getTrainer().getEmail()}
+									</p>
+									<p>
+										<span class="color-1">Trainer gender :</span>
+										${training.getTrainer().getGender()}
+									</p>
+									<h2 class="p6">All Exercises for Training</h2>
+
+									<ul class="list-2">
+										<t:loop source="list" value="evidenceExercise">
+											<li>
+												<span class="color-1">Dan :</span>
+												${evidenceExercise.getDay()}
+												<a href="#" t:type="pageLink" t:page="Trainings">${evidenceExercise.getExercise().getType()} </a>
+
+											</li>
+											<embed width="500" height="360"
+												src="https://www.youtube.com/v/${evidenceExercise.getExercise().getVideoLink()}"
+												frameborder="0" allowfullscreen="true"></embed>
+										</t:loop>
+									</ul>
+								</div>
+
+
+							</p:else>
+
 						</t:if>
-						</div>
-					<!-- 	 <div class="col-4">
-							<embed width="640" height="360"
-								src="https://www.youtube.com/v/${evidenceExercise.getExercise().getVideoLink()}"
-								frameborder="0" allowfullscreen="true"></embed>
-						</div> -->
-						<div class="col-4">
-							<h2 class="p6">All Exercises for Training</h2>
-
-							<ul class="list-2">
-								<t:loop source="list" value="evidenceExercise">
-									<li>
-										<span class="color-1">Dan :</span>
-										${evidenceExercise.getDay()}
-										<a href="#" t:type="pageLink" t:page="Trainings">${evidenceExercise.getExercise().getType()} </a>
-									
-									</li>
-										<embed width="640" height="360"
-								src="https://www.youtube.com/v/${evidenceExercise.getExercise().getVideoLink()}"
-								frameborder="0" allowfullscreen="true"></embed>
-								</t:loop>
-							</ul>
-						</div>
-						
-
 					</div>
 				</div>
 			</div>

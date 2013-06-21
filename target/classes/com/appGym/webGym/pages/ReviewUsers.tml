@@ -15,9 +15,7 @@
 		</script>
 	</head>
 	<section id="content">
-		<div class="ic">More Website Templates @ TemplateMonster.com. April
-			02,
-			2012!</div>
+		
 		<div class="container_12">
 			<div class="grid_12">
 				<div class="box-shadow">
@@ -31,7 +29,7 @@
 												<a href="#tabs-1">Users</a>
 											</li>
 											<li>
-												<a href="#tabs-2">Search user</a>
+												<a href="#tabs-2">Membership</a>
 											</li>
 											<li>
 												<a href="#tabs-3">Trainings</a>
@@ -62,9 +60,7 @@
 												</p:dateOfBirthCell>
 												<p:typeCell>
 													<div t:type="jquery/inPlaceEditor" value="user.type"
-														t:context="${currentIndex}">
-														<t:select t:id="selectedTypes" model="types"
-															encoder="types" value="selectedTypes" t:blankLabel="choose..." />
+														t:context="${currentIndex}" t:id="type">
 													</div>
 												</p:typeCell>
 												<p:actionCell>
@@ -75,9 +71,28 @@
 
 												</p:actionCell>
 											</t:grid>
+											
+											<t:actionlink t:id="runReport" class="button2">Export</t:actionlink>
 										</div>
 										<div id="tabs-2">
-											<p>Search user</p>
+											<p>Membership</p>
+												<t:grid source="memerships" row="membership" model="myModel2"
+												t:inplace="true" rowIndex="currentIndex" rowsPerPage="10">
+												
+												<p:userCell>
+													${membership.getUser().getName()}
+												</p:userCell>
+
+												<p:priceCell>
+																${membership.price}
+												</p:priceCell>
+												<p:startDateCell>
+																${membership.getStartDate()}
+												</p:startDateCell>
+												<p:finishDateCell>
+																${membership.getFinishDate()}
+												</p:finishDateCell>
+											</t:grid>
 										</div>
 										<div id="tabs-3">
 											<p>Trainings</p>
@@ -106,6 +121,7 @@
 												</p:actionCell>
 												
 											</t:grid>
+											<t:actionlink t:id="runReportTrainings" class="button2">Export</t:actionlink>
 										</div>
 									</div>
 								</fieldset>

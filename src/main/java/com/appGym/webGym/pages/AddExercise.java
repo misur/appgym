@@ -27,7 +27,7 @@ public class AddExercise {
 	@Property
 	private String videoLink;
 
-	Object onSubmitFromForm() {
+	Object onSubmitFromForm1() {
 		Exercise exercise = new Exercise();
 		exercise.setDescription(description);
 		exercise.setType(type);

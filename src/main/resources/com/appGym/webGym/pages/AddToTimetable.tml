@@ -1,0 +1,66 @@
+<html t:type="layout" t:title="AddToTimetable" t:pagetitle="AddToTimetable"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+	<section id="content">
+		<div class="container_12">
+			<div class="grid_12">
+				<div class="box-shadow">
+					<div class="wrap block-2">
+						<div class="col-1">
+							<t:form t:id="form">
+								<fieldset>
+									<table cellpadding="10" border="2">
+										<tr>
+											<td>
+												<h3>Day :</h3>
+												<br></br>
+											</td>
+											<td>
+												<t:select t:id="day" model="days"
+													encoder="days" value="day" t:blankLabel="choose..." />
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<h3>Training :</h3>
+												<br></br>
+											</td>
+											<td>
+												<t:select t:id="training" model="trainings"
+													encoder="trainings" value="training" t:blankLabel="choose..." />
+											</td>
+										</tr>
+
+										<tr>
+											<td>
+												<br></br>
+												<h3>Time :</h3>
+
+											</td>
+											<td>
+											<t:select t:id="time" model="times"
+													encoder="times" value="time" t:blankLabel="choose..." />
+												
+											</td>
+										</tr>
+
+									</table>
+
+									<div class="btns">
+										<t:linkSubmit t:value="Send" class="button2">
+											Add To
+											Timetable
+										</t:linkSubmit>
+										<t:pageLink t:page="Timetable" class="button2">
+											Cancle
+										</t:pageLink>
+									</div>
+
+								</fieldset>
+							</t:form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</html>

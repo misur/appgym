@@ -76,9 +76,9 @@ public class TrainingDAOImplements implements TrainingDAO {
 
 	public List<Training> findGroupTrainings() {
 		// TODO Auto-generated method stub
-		List<Training> t =session.createCriteria(Training.class)
+		List<Training> t = session.createCriteria(Training.class)
 				.add(Restrictions.eq("type", "group")).list();
-		if(t==null){
+		if (t == null) {
 			return null;
 		}
 		return t;
@@ -86,19 +86,42 @@ public class TrainingDAOImplements implements TrainingDAO {
 
 	public List<Training> findPersonalTrainings() {
 		// TODO Auto-generated method stub
-		List<Training> t =session.createCriteria(Training.class).add(Restrictions.eq("type", "personal")).list();
-		if(t==null){
+		List<Training> t = session.createCriteria(Training.class)
+				.add(Restrictions.eq("type", "personal")).list();
+		if (t == null) {
 			return null;
 		}
-		return t;	
-	}
-	public List<Training> findByName(String name) {
-		// TODO Auto-generated method stub
-		List<Training> t =session.createCriteria(Training.class).add(Restrictions.eq("name", "name")).list();
-		if(t==null){
-			return null;
-		}
-		return t;	
+		return t;
 	}
 
+	public List<Training> findByName(String name) {
+		// TODO Auto-generated method stub
+		List<Training> t = session.createCriteria(Training.class)
+				.add(Restrictions.eq("name", "name")).list();
+		if (t == null) {
+			return null;
+		}
+		return t;
+	}
+
+	public int numberOfTraining(Long id){
+		int count =0;
+		List<Training> list = session.createCriteria(Training.class).list();
+		for (int i = 0; i < list.size(); i++) {
+			if(list.get(i).getTrainer().getId().equals(id))
+				count++;
+		}
+		return count;
+	}
+	
+	public List<Training> findMyTrainings(Long id){
+		List<Training> list = session.createCriteria(Training.class).list();
+		List<Training> my = new ArrayList<Training>();
+		for (int i = 0; i < list.size(); i++) {
+			if(list.get(i).getTrainer().getId()==id){
+				my.add(list.get(i));
+			}
+		}
+		return my;
+	}
 }

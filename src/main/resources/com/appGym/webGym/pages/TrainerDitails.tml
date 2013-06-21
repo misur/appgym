@@ -1,0 +1,140 @@
+<html t:type="layout" t:title="Trainer Details" t:pagetitle="Trainer Details"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+	<section id="content">
+		<div class="container_12">
+			<div class="grid_12">
+				<div class="box-shadow">
+					<div class="wrap block-2">
+						<div class="col-4">
+							<strong>
+								<span class="color-1">Profile :</span>
+							</strong>
+							<table width="300">
+								<tr>
+									<td>
+										<tr>
+											<td height="20">
+												<span class="color-1">User name :</span>
+											</td>
+											<td height="20"> ${user.getUserName()}</td>
+										</tr>
+										<tr>
+											<td height="20">
+												<span class="color-1">Name :</span>
+											</td>
+											<td height="20"> ${user.getName()}</td>
+										</tr>
+										<tr>
+											<td height="20">
+												<span class="color-1">Surname :</span>
+											</td>
+											<td height="20"> ${user.getSurname()}</td>
+										</tr>
+										<tr>
+											<td height="20">
+												<span class="color-1">Gender :</span>
+											</td>
+											<td height="20"> ${user.getGender()}</td>
+										</tr>
+										<tr>
+											<td height="20">
+												<span class="color-1">Type :</span>
+											</td>
+											<td height="20"> ${user.getType()}</td>
+										</tr>
+										<tr>
+											<td height="20">
+												<span class="color-1">Date of birth :</span>
+											</td>
+											<td height="20"> ${user.getDateOfBirth()}</td>
+										</tr>
+										<tr>
+											<td height="20">
+												<span class="color-1">Email :</span>
+											</td>
+											<td height="20"> ${user.getEmail()}</td>
+										</tr>
+										<tr>
+											<td height="20">
+												<span class="color-1">Phone :</span>
+											</td>
+											<td height="20"> ${user.getPhone()}</td>
+										</tr>
+									</td>
+								</tr>
+							</table>
+						</div>
+
+						<div class="col-3">
+							<img src="${user.image}" alt="Smiley face" height="150"
+								width="150" />
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container_12">
+			<div class="grid_12">
+				<div class="box-shadow">
+					<div class="wrap block-2">
+						<div class="col-3">
+							<strong>
+								<span class="color-1">More information :</span>
+							</strong>
+							<table width="300">
+								<tr>
+									<td>
+										<tr>
+											<td height="20">
+												<span class="color-1">Number of training:</span>
+											</td>
+											<td height="20"> ${numberOfTraining}</td>
+										</tr>
+										<tr>
+											<td height="20">
+												<span class="color-1">Number of person on training :</span>
+											</td>
+											<td height="20"> ${numberOfPeopleTraining}</td>
+										</tr>
+
+									</td>
+								</tr>
+							</table>
+						</div>
+						
+						<div class="col-1">
+							<strong>
+								<span class="color-1">My trainings :</span>
+							</strong>
+						<t:grid source="trainingList" row="training" model="myModel1"
+												t:inplace="true" rowIndex="currentIndex" rowsPerPage="10">
+
+												<p:nameCell>
+																${training.name}
+												</p:nameCell>
+												<p:typeCell>
+																${training.type}
+												</p:typeCell>
+												<p:priceCell>
+																${training.price}
+												</p:priceCell>
+												<p:ratingCell>
+																${training.rating}
+												</p:ratingCell>
+												<p:actionCell>
+													<t:actionlink t:id="deleteTraining" context="training.id"
+														class="icon-5">
+														<img src="layout/images/icon-5.png" />
+													</t:actionlink>
+
+												</p:actionCell>
+												
+											</t:grid>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</html>

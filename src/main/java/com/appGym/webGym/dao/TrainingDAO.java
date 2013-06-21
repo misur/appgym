@@ -28,4 +28,8 @@ public interface TrainingDAO {
 	public List<Training> findPersonalTrainings();
 
 	public List<Training> findByName(String name);
+	
+	public int numberOfTraining(Long id);
+	
+	public List<Training> findMyTrainings(Long id);
 }

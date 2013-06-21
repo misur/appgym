@@ -24,12 +24,21 @@ import com.appGym.webGym.dao.EvidenceExerciseDAO;
 import com.appGym.webGym.dao.EvidenceExerciseDAOImplements;
 import com.appGym.webGym.dao.ExerciseDAO;
 import com.appGym.webGym.dao.ExerciseDAOImplements;
+import com.appGym.webGym.dao.MembershipDAO;
+import com.appGym.webGym.dao.MembershipDAOImplements;
+import com.appGym.webGym.dao.MoreInformationDAOImplements;
+import com.appGym.webGym.dao.MoreInformationDao;
 import com.appGym.webGym.dao.MyTrainingsDAO;
 import com.appGym.webGym.dao.MyTrainingsDAOImplements;
+import com.appGym.webGym.dao.PresenceDAOImplements;
+import com.appGym.webGym.dao.PresenceDao;
+import com.appGym.webGym.dao.TimetableDAO;
+import com.appGym.webGym.dao.TimetableDAOImplements;
 import com.appGym.webGym.dao.TrainingDAO;
 import com.appGym.webGym.dao.TrainingDAOImplements;
 import com.appGym.webGym.dao.UserDAO;
 import com.appGym.webGym.dao.UserDAOImplements;
+import com.appGym.webGym.entities.Presence;
 import com.appGym.webGym.security.AuthenticationFilter;
 
 /**
@@ -52,7 +61,10 @@ public class AppModule
     	binder.bind(EvidenceExerciseDAO.class, EvidenceExerciseDAOImplements.class);
     	binder.bind(ExerciseDAO.class, ExerciseDAOImplements.class);
     	binder.bind(MyTrainingsDAO.class, MyTrainingsDAOImplements.class);
-    	 
+    	binder.bind(MembershipDAO.class, MembershipDAOImplements.class);
+    	binder.bind(TimetableDAO.class,TimetableDAOImplements.class);
+    	binder.bind(MoreInformationDao.class,MoreInformationDAOImplements.class);
+    	binder.bind(PresenceDao.class,PresenceDAOImplements.class);
     }
 
     public static void contributeFactoryDefaults(

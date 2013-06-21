@@ -25,4 +25,6 @@ public interface UserDAO {
 
 	@CommitAfter
 	public boolean deleteByID(Long id);
+	
+	public List<User> findUserByType(String type);
 }

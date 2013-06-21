@@ -1,0 +1,221 @@
+<html t:type="layout" t:title="Profile" t:pagetitle="Profile"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_3.xsd" xmlns:p="tapestry:parameter">
+	<section id="content">
+		<div class="container_12">
+			<div class="grid_12">
+				<div class="box-shadow">
+					<div class="wrap block-1">
+						<div class="col-4">
+
+							<strong>
+								<span class="color-1">Profile :</span>
+							</strong>
+							<table width="300">
+								<tr>
+									<td>
+										<tr>
+											<td height="20">
+												<span class="color-1">User name :</span>
+											</td>
+											<td height="20"> ${user.getUserName()}</td>
+										</tr>
+										<tr>
+											<td height="20">
+												<span class="color-1">Name :</span>
+											</td>
+											<td height="20"> ${user.getName()}</td>
+										</tr>
+										<tr>
+											<td height="20">
+												<span class="color-1">Surname :</span>
+											</td>
+											<td height="20"> ${user.getSurname()}</td>
+										</tr>
+										<tr>
+											<td height="20">
+												<span class="color-1">Gender :</span>
+											</td>
+											<td height="20"> ${user.getGender()}</td>
+										</tr>
+										<tr>
+											<td height="20">
+												<span class="color-1">Type :</span>
+											</td>
+											<td height="20"> ${user.getType()}</td>
+										</tr>
+										<tr>
+											<td height="20">
+												<span class="color-1">Date of birth :</span>
+											</td>
+											<td height="20"> ${user.getDateOfBirth()}</td>
+										</tr>
+										<tr>
+											<td height="20">
+												<span class="color-1">Email :</span>
+											</td>
+											<td height="20"> ${user.getEmail()}</td>
+										</tr>
+										<tr>
+											<td height="20">
+												<span class="color-1">Phone :</span>
+											</td>
+											<td height="20"> ${user.getPhone()}</td>
+										</tr>
+									</td>
+								</tr>
+							</table>
+							
+						</div>
+						<div class="col-2">
+							<img src="${user.image}" alt="Smiley face" height="150"
+								width="150" />
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container_12">
+			<div class="grid_12">
+				<div class="box-shadow">
+					<div class="wrap block-1">
+						<div class="col-2">
+							<strong>
+										<span class="color-1">More information</span>
+									</strong>
+									
+									<t:if test="moreInformation">
+
+								<table width="300">
+									<tr>
+										<td>
+											<tr>
+												<td height="20">
+													<span class="color-1">Weight :</span>
+												</td>
+												<td height="20"> ${moreInformation.getWeight()} kg</td>
+											</tr>
+											<tr>
+												<td height="20">
+													<span class="color-1">Height :</span>
+												</td>
+												<td height="20"> ${moreInformation.getHeight()} cm</td>
+											</tr>
+											<tr>
+												<td height="20">
+													<span class="color-1">Fat Percentage :</span>
+												</td>
+												<td height="20"> ${moreInformation.getFatPercentage()} %</td>
+											</tr>
+											<tr>
+												<td height="20">
+													<span class="color-1">Percentage Of Muscle Mass :</span>
+												</td>
+												<td height="20">
+													${moreInformation.getPercentageOfMuscleMass()} %</td>
+											</tr>
+											<tr>
+												<td height="20">
+													<span class="color-1">Volume Of Arms :</span>
+												</td>
+												<td height="20"> ${moreInformation.getVolumeOfArms()} cm</td>
+											</tr>
+											<tr>
+												<td height="20">
+													<span class="color-1">Extent Of Legs :</span>
+												</td>
+												<td height="20"> ${moreInformation.getExtentOfLegs()} cm</td>
+											</tr>
+											<tr>
+												<td height="20">
+													<span class="color-1">Vaist :</span>
+												</td>
+												<td height="20"> ${moreInformation.getVaist()} cm</td>
+											</tr>
+										</td>
+									</tr>
+								</table>
+
+								<p:else>
+									<t:pageLink t:page="AddMoreInformation" class="button2">
+										AddMoreInformation
+									</t:pageLink>
+								</p:else>
+							</t:if>
+						</div>
+					</div></div>
+				</div>
+			</div>
+			<t:if test="membership">
+				<div class="container_12">
+					<div class="grid_12">
+						<div class="box-shadow">
+							<div class="wrap block-1">
+								<div class="col-2">
+									<strong>
+										<span class="color-1">Membership</span>
+									</strong>
+									<table width="300">
+										<tr>
+											<td>
+												<tr>
+													<td height="20">
+														<span class="color-1">Start date :</span>
+													</td>
+													<td height="20"> ${membership.getStartDate()}</td>
+												</tr>
+												<tr>
+													<td height="20">
+														<span class="color-1">Finish date :</span>
+													</td>
+													<td height="20"> ${membership.getFinishDate()}</td>
+												</tr>
+												<tr>
+													<td height="20">
+														<span class="color-1">Price :</span>
+													</td>
+													<td height="20"> ${membership.getPrice()}</td>
+												</tr>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</t:if>
+			<div class="container_12">
+				<div class="grid_12">
+					<div class="box-shadow">
+						<div class="wrap block-1">
+							<div class="col-2">
+								<strong>
+									<span class="color-1">My Trainings</span>
+								</strong>
+
+								<t:grid source="myTrainings" row="myTraining" model="myModel"
+									t:inplace="true" rowIndex="currentIndex" rowsPerPage="10">
+									<p:trainingNameCell>
+										${myTraining.getTraining().getName()}
+									</p:trainingNameCell>
+									<p:trainerCell>
+										${myTraining.getTraining().getTrainer().getName()}
+									</p:trainerCell>
+									<p:typeCell>
+										${myTraining.getTraining().getType()}
+									</p:typeCell>
+									<p:durationCell>
+										${myTraining.getTraining().getDuration()}
+									</p:durationCell>
+								</t:grid>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</section>
+</html>

@@ -41,6 +41,13 @@ public class User {
 	@Validate("required")
 	@Column(name = "type", nullable = false)
 	private String type;
+	
+	@Validate("required")
+	@Column(name = "phone")
+	private String phone;
+	
+	@Column(name = "image")
+	private String image;
 
 	public String getType() {
 		return type;
@@ -106,13 +113,7 @@ public class User {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password="
-				+ password + ", name=" + name + ", surname=" + surname
-				+ ", gender=" + gender + ", email=" + email + ", dateOfBirth="
-				+ dateOfBirth + ", type=" + type + "]";
-	}
+	
 
 	public String getGender() {
 		return gender;
@@ -120,6 +121,31 @@ public class User {
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password="
+				+ password + ", name=" + name + ", surname=" + surname
+				+ ", gender=" + gender + ", email=" + email + ", dateOfBirth="
+				+ dateOfBirth + ", type=" + type + ", phone=" + phone
+				+ ", image=" + image + "]";
 	}
 
 

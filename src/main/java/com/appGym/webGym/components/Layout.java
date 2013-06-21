@@ -26,8 +26,7 @@ import com.appGym.webGym.services.BasicAuthenticator;
 		"context:layout/js/Asap_400.font.js",
 		"context:layout/js/Coolvetica_400.font.js",
 		"context:layout/js/Kozuka_M_500.font.js",
-		"context:layout/js/cufon-replace.js",
-		"context:layout/js/FF-cash.js" })
+		"context:layout/js/cufon-replace.js", "context:layout/js/FF-cash.js" })
 public class Layout {
 	/**
 	 * The page title, for the <title> element and the <h1>element.
@@ -98,6 +97,12 @@ public class Layout {
 						.equalsIgnoreCase("trainer")) {
 			return autenticator.getLoggedUser();
 		}
+		return null;
+	}
+
+	public User getTrainer() {
+		if (autenticator.getLoggedUser().getType().equalsIgnoreCase("Trainer"))
+			return autenticator.getLoggedUser();
 		return null;
 	}
 }

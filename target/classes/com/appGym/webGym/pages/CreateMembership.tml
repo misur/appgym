@@ -6,8 +6,36 @@
 				<div class="box-shadow">
 					<div class="wrap block-2">
 						<div class="col-1">
+							<t:form t:id="form">
+								<p>
+									<span class="color-1">User :</span>
+									${user.name}
+								</p>
+								<p>
+									<span class="color-1">Date start :</span>
+									${start}
+								</p>
+								<p>
+									<span class="color-1">Date finish :</span>
+									${finish}
+								</p>
+								<p>
+									<span class="color-1">Price :</span>
+									${price}
+								</p>
+								<div class="btns">
+									<t:if test="!Checks">
+										<t:linkSubmit t:value="Send" class="button2">
+											Create
+											Membership
+										</t:linkSubmit>
+									</t:if>
+									<t:pageLink t:page="Index" class="button2">
+										Cancel
+									</t:pageLink>
+								</div>
+							</t:form>
 						</div>
-							
 					</div>
 				</div>
 			</div>
